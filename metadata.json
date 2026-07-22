@@ -1,0 +1,6 @@
+{
+  "name": "Guía de Supervivencia - Asesorías al Migrante",
+  "description": "Página web de venta y asesoría para el migrante, con guía de supervivencia, asistente inteligente con IA para pre-ventas, checklist interactivo de mudanza y calculadora de presupuesto.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

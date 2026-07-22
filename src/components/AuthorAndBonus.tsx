@@ -1,6 +1,6 @@
 import React from "react";
 import { Check, ShieldCheck, Heart } from "lucide-react";
-import danielaGomezImg from "../assets/images/daniela_gomez_1784296659468.jpg";
+import danielaGomezImg from "../assets/images/daniela_oficina.jpeg";
 import accompanyIcon from "../assets/images/gold_accompany_icon_1784559283025.jpg";
 import goldChecklistIcon from "../assets/images/gold_checklist_icon_1784734962119.jpg";
 import goldKitIcon from "../assets/images/gold_kit_icon_1784734975612.jpg";

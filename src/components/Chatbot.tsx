@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MessageSquare, X, Loader2, Heart, Send } from "lucide-react";
-import danielaGomezImg from "../assets/images/daniela_gomez_1784296659468.jpg";
+import danielaGomezImg from "../assets/images/daniela_oficina.jpeg";
 import aiChatIcon from "../assets/images/gold_ai_chat_icon_1784556885223.jpg";
 
 interface ChatbotProps {

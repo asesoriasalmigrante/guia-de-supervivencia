@@ -1,6 +1,5 @@
 import React from "react";
 import { Mail, Phone, Heart, ArrowUp } from "lucide-react";
-import migranteLogoCleanImg from "../assets/images/migrante_logo_clean_1784299634175.jpg";
 
 export default function Footer() {
   const handleScrollToTop = () => {
@@ -16,7 +15,7 @@ export default function Footer() {
             <div className="flex items-center space-x-2">
               <div className="flex items-center justify-center h-9 w-9 overflow-hidden rounded-full border border-[#E79923]/20 bg-[#07172E]">
                 <img
-                  src={migranteLogoCleanImg}
+                  src="/logo_dark_bg.png"
                   alt="Logo Asesorías al Migrante"
                   className="h-full w-full object-cover scale-105"
                   referrerPolicy="no-referrer"

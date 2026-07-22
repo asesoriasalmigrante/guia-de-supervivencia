@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Phone, Heart, ArrowUp } from "lucide-react";
+import { Mail, Phone, ArrowUp } from "lucide-react";
 
 export default function Footer() {
   const handleScrollToTop = () => {
@@ -87,10 +87,6 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-1.5">
             <span>© 2026 Asesorías al Migrante. Todos los derechos reservados.</span>
-            <span>•</span>
-            <span className="flex items-center text-slate-600">
-              Creado con <Heart className="h-3.5 w-3.5 mx-1 text-rose-500 fill-rose-500" /> en la web
-            </span>
           </div>
           <button
             id="scroll-to-top-btn"

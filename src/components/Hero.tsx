@@ -1,6 +1,6 @@
 import React from "react";
 import { FileText, BookOpen, Smartphone, ShoppingCart, ShieldCheck, CreditCard } from "lucide-react";
-import ebookCoverImg from "../assets/images/ebook_cover_1784298846120.jpg";
+import ebookCoverImg from "../assets/images/ebook_cover.jpeg";
 import DottedWorldMap from "./DottedWorldMap";
 import formatIcon from "../assets/images/gold_format_icon_1784556100929.jpg";
 import contentIcon from "../assets/images/gold_content_icon_1784556117314.jpg";

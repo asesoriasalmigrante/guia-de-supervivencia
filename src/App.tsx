@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 import CheckoutModal from "./components/CheckoutModal";
 import DottedWorldMap from "./components/DottedWorldMap";
-import ebookCoverImg from "./assets/images/ebook_cover_1784298846120.jpg";
+import ebookCoverImg from "./assets/images/ebook_cover.jpeg";
 
 export default function App() {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);

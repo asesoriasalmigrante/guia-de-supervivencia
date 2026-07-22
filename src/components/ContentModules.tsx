@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 import listoEmigrarImg from "../assets/images/icon_listo_emigrar_1784306988190.jpg";
 import paisCorrectoImg from "../assets/images/icon_pais_correcto_1784307003200.jpg";
 import paisEstudiosImg from "../assets/images/icon_pais_estudios_1784307018765.jpg";
@@ -12,19 +14,14 @@ import checklistViajarImg from "../assets/images/icon_checklist_viajar_178430711
 import recursosEnlacesImg from "../assets/images/icon_recursos_enlaces_1784307131509.jpg";
 
 export default function ContentModules() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const modules = [
     {
       id: 1,
       number: "SECCIÓN 1",
       title: "¿Estás realmente listo para emigrar?",
-      icon: (
-        <img
-          src={listoEmigrarImg}
-          alt="¿Estás realmente listo para emigrar?"
-          className="w-full h-full rounded-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-      ),
+      icon: listoEmigrarImg,
       description: "Evalúa tus motivos profundos, alinea tus expectativas y descubre si cuentas con la preparación mental necesaria para dar este gran paso.",
       bullets: [
         "Test de auto-diagnóstico inicial de idoneidad",
@@ -37,14 +34,7 @@ export default function ContentModules() {
       id: 2,
       number: "SECCIÓN 2",
       title: "Cómo elegir el país correcto",
-      icon: (
-        <img
-          src={paisCorrectoImg}
-          alt="Cómo elegir el país correcto"
-          className="w-full h-full rounded-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-      ),
+      icon: paisCorrectoImg,
       description: "Aprende los criterios clave para tomar la decisión de tu destino ideal según el clima, idioma, costo de vida y oportunidades de desarrollo.",
       bullets: [
         "Análisis del costo de vida vs salarios reales",
@@ -57,14 +47,7 @@ export default function ContentModules() {
       id: 3,
       number: "SECCIÓN 3",
       title: "Evaluar el país según tus estudios",
-      icon: (
-        <img
-          src={paisEstudiosImg}
-          alt="Evaluar el país según tus estudios"
-          className="w-full h-full rounded-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-      ),
+      icon: paisEstudiosImg,
       description: "Analiza la viabilidad de tu perfil profesional, los requisitos del mercado laboral local y los procesos de reconocimiento de títulos.",
       bullets: [
         "Profesiones reguladas frente a sectores no regulados",
@@ -77,14 +60,7 @@ export default function ContentModules() {
       id: 4,
       number: "SECCIÓN 4",
       title: "Tipos de visas y residencias",
-      icon: (
-        <img
-          src={visasResidenciasImg}
-          alt="Tipos de visas y residencias"
-          className="w-full h-full rounded-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-      ),
+      icon: visasResidenciasImg,
       description: "Descubre las diferentes opciones legales para ingresar y residir legalmente en tu país de destino de manera planificada.",
       bullets: [
         "Visas de trabajo, estudio y programas para nómadas digitales",
@@ -97,14 +73,7 @@ export default function ContentModules() {
       id: 5,
       number: "SECCIÓN 5",
       title: "Documentos indispensables",
-      icon: (
-        <img
-          src={documentosIndispensablesImg}
-          alt="Documentos indispensables"
-          className="w-full h-full rounded-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-      ),
+      icon: documentosIndispensablesImg,
       description: "La lista exacta de la documentación civil, académica y laboral que debes preparar, legalizar y apostillar antes de viajar.",
       bullets: [
         "Actas de nacimiento, antecedentes penales y actas de matrimonio",
@@ -117,14 +86,7 @@ export default function ContentModules() {
       id: 6,
       number: "SECCIÓN 6",
       title: "Finanzas y presupuesto migratorio",
-      icon: (
-        <img
-          src={finanzasMigratorioImg}
-          alt="Finanzas y presupuesto migratorio"
-          className="w-full h-full rounded-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-      ),
+      icon: finanzasMigratorioImg,
       description: "Aprende a presupuestar tu mudanza con precisión matemática, calculando el fondo de supervivencia mínimo para tus primeros meses.",
       bullets: [
         "Fórmula paso a paso para el presupuesto de transición inicial",
@@ -137,14 +99,7 @@ export default function ContentModules() {
       id: 7,
       number: "SECCIÓN 7",
       title: "Cómo conseguir empleo desde el extranjero",
-      icon: (
-        <img
-          src={conseguirEmpleoImg}
-          alt="Cómo conseguir empleo desde el extranjero"
-          className="w-full h-full rounded-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-      ),
+      icon: conseguirEmpleoImg,
       description: "Estrategias prácticas para postular a ofertas de trabajo internacionales, adaptar tu currículum al estándar local y destacar.",
       bullets: [
         "Redacción de currículum (CV) y carta de presentación internacional",
@@ -157,14 +112,7 @@ export default function ContentModules() {
       id: 8,
       number: "SECCIÓN 8",
       title: "Adaptación emocional y cultural",
-      icon: (
-        <img
-          src={adaptacionEmocionalImg}
-          alt="Adaptación emocional y cultural"
-          className="w-full h-full rounded-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-      ),
+      icon: adaptacionEmocionalImg,
       description: "Herramientas de psicología migratoria para gestionar con éxito el choque cultural, el duelo de partida y la soledad inicial.",
       bullets: [
         "Fases psicológicas de la curva migratoria y cómo transitarlas",
@@ -177,14 +125,7 @@ export default function ContentModules() {
       id: 9,
       number: "SECCIÓN 9",
       title: "Errores que pueden arruinar tu proceso",
-      icon: (
-        <img
-          src={erroresArruinarImg}
-          alt="Errores que pueden arruinar tu proceso"
-          className="w-full h-full rounded-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-      ),
+      icon: erroresArruinarImg,
       description: "Identifica y previene los fallos más habituales cometidos por migrantes que ponen en riesgo su capital, tiempo o estatus legal.",
       bullets: [
         "Viajar como turista con la intención encubierta de trabajar o residir",
@@ -197,14 +138,7 @@ export default function ContentModules() {
       id: 10,
       number: "SECCIÓN 10",
       title: "Checklist final antes de viajar",
-      icon: (
-        <img
-          src={checklistViajarImg}
-          alt="Checklist final antes de viajar"
-          className="w-full h-full rounded-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-      ),
+      icon: checklistViajarImg,
       description: "La lista de control exhaustiva para las últimas semanas y el día del viaje para asegurarte de no olvidar ningún detalle vital.",
       bullets: [
         "Checklist de equipaje, medicamentos permitidos y documentación en mano",
@@ -217,14 +151,7 @@ export default function ContentModules() {
       id: 11,
       number: "SECCIÓN 11",
       title: "Recursos y enlaces oficiales",
-      icon: (
-        <img
-          src={recursosEnlacesImg}
-          alt="Recursos y enlaces oficiales"
-          className="w-full h-full rounded-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-      ),
+      icon: recursosEnlacesImg,
       description: "Un directorio clasificado de portales oficiales, embajadas, calculadoras de costo de vida y redes de apoyo migratorio seguras.",
       bullets: [
         "Sitios web oficiales de los ministerios de relaciones exteriores e inmigración",
@@ -235,9 +162,19 @@ export default function ContentModules() {
     }
   ];
 
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev === 0 ? modules.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev === modules.length - 1 ? 0 : prev + 1));
+  };
+
+  const active = modules[activeIndex];
+
   return (
     <section id="contenido" className="py-20 bg-gradient-to-b from-[#040e1b] via-[#08172e] to-[#030914] text-[#e2e8f0] border-b border-blue-500/10 relative overflow-hidden">
-      {/* Premium background shines and glowing orbs */}
+      {/* Premium background shines */}
       <div className="absolute top-1/4 right-1/4 w-[450px] h-[450px] rounded-full bg-cyan-500/10 blur-[130px] pointer-events-none opacity-60" />
       <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-blue-600/10 blur-[150px] pointer-events-none opacity-60" />
       
@@ -252,31 +189,93 @@ export default function ContentModules() {
           <div className="h-1 w-12 bg-[#E79923] mx-auto mt-4 rounded" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {modules.map((m) => (
-            <div
-              key={m.id}
-              className="bg-[#081326]/40 border border-white/[0.03] rounded-2xl p-5 hover:border-blue-500/30 hover:bg-[#0c1d3a]/65 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-950/20 flex flex-col justify-between group"
-            >
-              <div>
-                <div className="mb-2">
-                  <span className="text-[8px] font-bold text-[#E79923] tracking-widest uppercase bg-[#E79923]/10 px-1.5 py-0.5 rounded border border-[#E79923]/20">
-                    {m.number}
+        {/* Carousel */}
+        <div className="relative max-w-3xl mx-auto px-12 sm:px-16">
+          {/* Left Arrow */}
+          <button
+            onClick={handlePrev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 p-2 sm:p-3 rounded-full bg-[#081223]/60 hover:bg-blue-950/50 text-[#94a3b8] hover:text-white border border-blue-500/15 hover:border-blue-500/40 transition-all duration-200 cursor-pointer z-20 hover:shadow-lg hover:shadow-blue-500/10"
+            aria-label="Sección anterior"
+          >
+            <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
+          </button>
+
+          {/* Active Module */}
+          <div className="relative min-h-[380px] flex items-center justify-center overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active.id}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="w-full bg-[#081326]/60 border border-white/[0.06] rounded-2xl p-6 sm:p-8 shadow-2xl shadow-blue-950/30"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-[9px] font-bold text-[#E79923] tracking-widest uppercase bg-[#E79923]/10 px-2 py-0.5 rounded border border-[#E79923]/20">
+                    {active.number}
+                  </span>
+                  <div className="h-[1px] flex-1 bg-gradient-to-r from-[#E79923]/20 to-transparent" />
+                  <span className="text-xs text-white/30 font-mono">
+                    {activeIndex + 1} / {modules.length}
                   </span>
                 </div>
-                <div className="flex items-center gap-2.5 mb-2">
-                  <div className="flex-shrink-0 rounded-full border border-[#E79923]/30 bg-[#E79923]/5 p-0.5 flex items-center justify-center h-9 w-9 group-hover:bg-[#E79923]/15 group-hover:border-[#E79923] transition-all duration-300 shadow-inner overflow-hidden">
-                    {m.icon}
+
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-full overflow-hidden border-2 border-[#E79923]/40 shadow-lg shadow-[#E79923]/10">
+                    <img
+                      src={active.icon}
+                      alt={active.title}
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
                   </div>
-                  <h3 className="text-[13px] sm:text-sm font-medium text-white font-display leading-tight group-hover:text-[#E79923] transition-colors duration-200">
-                    {m.title}
+                  <h3 className="text-lg sm:text-xl font-display font-normal text-white leading-tight">
+                    {active.title}
                   </h3>
                 </div>
-                <p className="text-[#94a3b8] text-[11px] leading-relaxed">
-                  {m.description}
+
+                <p className="text-[#94a3b8] text-sm leading-relaxed mb-6">
+                  {active.description}
                 </p>
-              </div>
-            </div>
+
+                <div className="space-y-2.5">
+                  {active.bullets.map((bullet, i) => (
+                    <div key={i} className="flex items-start gap-2.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#E79923] mt-1.5 flex-shrink-0" />
+                      <span className="text-xs text-slate-300 leading-relaxed">
+                        {bullet}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={handleNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 p-2 sm:p-3 rounded-full bg-[#081223]/60 hover:bg-blue-950/50 text-[#94a3b8] hover:text-white border border-blue-500/15 hover:border-blue-500/40 transition-all duration-200 cursor-pointer z-20 hover:shadow-lg hover:shadow-blue-500/10"
+            aria-label="Siguiente sección"
+          >
+            <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
+          </button>
+        </div>
+
+        {/* Dots indicators */}
+        <div className="flex items-center justify-center gap-2 mt-8">
+          {modules.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveIndex(idx)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                idx === activeIndex
+                  ? "bg-[#E79923] w-6"
+                  : "bg-white/20 hover:bg-white/40"
+              }`}
+              aria-label={`Ir a sección ${idx + 1}`}
+            />
           ))}
         </div>
       </div>

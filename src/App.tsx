@@ -15,6 +15,7 @@ import CheckoutModal from "./components/CheckoutModal";
 import DottedWorldMap from "./components/DottedWorldMap";
 import ebookCoverImg from "./assets/images/ebook_cover.jpeg";
 import { useI18n } from "./i18n";
+import { VisitorCounter } from "./components/VisitorCounter";
 
 export default function App() {
   const { t } = useI18n();
@@ -183,6 +184,7 @@ export default function App() {
       </section>
 
       <Footer />
+      <VisitorCounter />
       <Chatbot onOpenCheckout={openCheckout} />
       <CheckoutModal
         isOpen={isCheckoutOpen}

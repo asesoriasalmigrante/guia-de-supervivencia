@@ -21,7 +21,7 @@ export const hi: Translation = {
   heroTitle2: 'वास्तविक जीवन रक्षा गाइड',
   heroSubtitle: 'व्यावहारिक और यथार्थवादी गाइड जिसकी आपको दूसरे देश में शून्य से शुरू करने से पहले अपने मन, दस्तावेज़ और जीवन तैयार करने की आवश्यकता है। कोई झूठे वादे नहीं, केवल अनिवार्य सत्य।',
   heroFormatLabel: 'प्रारूप',
-  heroFormatValue: 'तत्काल PDF',
+  heroFormatValue: 'PDF या ऐप',
   heroContentLabel: 'सामग्री',
   heroContentValue: '100 पृष्ठ',
   heroSupportLabel: 'सहायता',

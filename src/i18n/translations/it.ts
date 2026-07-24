@@ -21,7 +21,7 @@ export const it: Translation = {
   heroTitle2: 'La Vera Guida alla Sopravvivenza',
   heroSubtitle: 'La guida pratica e realistica di cui hai bisogno per preparare la tua mente, i tuoi documenti e la tua vita prima di ricominciare da zero in un altro paese. Nessuna falsa promessa, solo verità indispensabili.',
   heroFormatLabel: 'Formato',
-  heroFormatValue: 'PDF Immediato',
+  heroFormatValue: 'PDF o App',
   heroContentLabel: 'Contenuto',
   heroContentValue: '100 Pagine',
   heroSupportLabel: 'Supporto',

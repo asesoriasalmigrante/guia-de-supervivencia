@@ -21,7 +21,7 @@ export const tr: Translation = {
   heroTitle2: 'Gerçek Hayatta Kalma Rehberi',
   heroSubtitle: 'Başka bir yerde sıfırdan başlamaya hazırlanmak için zihninizi, belgelerinizi ve yaşamınızı hazırlamanız gereken pratik ve gerçekçi rehber. Boş vaatler yok, sadece vazgeçilmez gerçekler.',
   heroFormatLabel: 'Format',
-  heroFormatValue: 'Anında PDF',
+  heroFormatValue: 'PDF veya Uygulama',
   heroContentLabel: 'İçerik',
   heroContentValue: '100 Sayfa',
   heroSupportLabel: 'Destek',

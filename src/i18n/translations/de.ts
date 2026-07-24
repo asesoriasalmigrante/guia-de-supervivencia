@@ -21,7 +21,7 @@ export const de: Translation = {
   heroTitle2: 'Der wahre Überlebensratgeber',
   heroSubtitle: 'Der pragmatische und realistische Ratgeber, den Sie brauchen, um Ihren Verstand, Ihre Dokumente und Ihr Leben vorzubereiten, bevor Sie in einem anderen Land von vorne anfangen. Keine falschen Versprechen, nur unverzichtbare Wahrheiten.',
   heroFormatLabel: 'Format',
-  heroFormatValue: 'Sofortiges PDF',
+  heroFormatValue: 'PDF oder App',
   heroContentLabel: 'Inhalt',
   heroContentValue: '100 Seiten',
   heroSupportLabel: 'Support',

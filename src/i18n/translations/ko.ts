@@ -21,7 +21,7 @@ export const ko: Translation = {
   heroTitle2: '진정한 생존 가이드',
   heroSubtitle: '다른 나라에서 백지상태로 시작하기 전에 준비해야 할 실용적이고 현실적인 가이드입니다. 마음, 서류, 삶의 준비를 도와드립니다. 허위 약속 없이 필수적인 진실만 담았습니다.',
   heroFormatLabel: '형식',
-  heroFormatValue: '즉시 PDF',
+  heroFormatValue: 'PDF 또는 앱',
   heroContentLabel: '콘텐츠',
   heroContentValue: '100페이지',
   heroSupportLabel: '지원',

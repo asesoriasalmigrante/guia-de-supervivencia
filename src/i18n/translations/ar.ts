@@ -21,7 +21,7 @@ export const ar: Translation = {
   heroTitle2: 'دليل البقاء الحقيقي',
   heroSubtitle: 'الدليل العملي والواقعي الذي تحتاجه لإعداد عقلك ووثائقك وحياتك قبل البدء من الصفر في بلد آخر. بدون وعود كاذبة، الحقائق الضرورية فقط.',
   heroFormatLabel: 'الشكل',
-  heroFormatValue: 'PDF فوري',
+  heroFormatValue: 'PDF أو تطبيق',
   heroContentLabel: 'المحتوى',
   heroContentValue: '100 صفحة',
   heroSupportLabel: 'الدعم',

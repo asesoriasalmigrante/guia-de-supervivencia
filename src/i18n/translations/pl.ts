@@ -21,7 +21,7 @@ export const pl: Translation = {
   heroTitle2: 'Prawdziwy Poradnik Przetrwania',
   heroSubtitle: 'Praktyczny i realistyczny poradnik, ktorego potrzebujesz, aby przygotowac swoj umysl, dokumenty i zycie przed zaczeciem od zera w innym kraju. Zadnych falszywych obietnic, tylko niezbedne prawdy.',
   heroFormatLabel: 'Format',
-  heroFormatValue: 'Natychmiastowy PDF',
+  heroFormatValue: 'PDF lub Aplikacja',
   heroContentLabel: 'Zawartosc',
   heroContentValue: '100 Stron',
   heroSupportLabel: 'Wsparcie',

@@ -21,7 +21,7 @@ export const zh: Translation = {
   heroTitle2: '真正的生存指南',
   heroSubtitle: '这是您在另一个国家从零开始之前，需要的实用且现实的指南，帮助您做好心理、文件和生活准备。没有虚假承诺，只有不可或缺的真相。',
   heroFormatLabel: '格式',
-  heroFormatValue: '即时PDF',
+  heroFormatValue: 'PDF 或 App',
   heroContentLabel: '内容',
   heroContentValue: '100页',
   heroSupportLabel: '支持',

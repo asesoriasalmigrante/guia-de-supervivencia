@@ -21,7 +21,7 @@ export const ja: Translation = {
   heroTitle2: '真のサバイバルガイド',
   heroSubtitle: '別の国でゼロから始める前に、準備する必要がある実用的で現実的なガイドです。マインド、書類、生活の準備をサポート。虚偽の約束なし、不可欠な真実のみ。',
   heroFormatLabel: 'フォーマット',
-  heroFormatValue: '即時PDF',
+  heroFormatValue: 'PDF または App',
   heroContentLabel: 'コンテンツ',
   heroContentValue: '100ページ',
   heroSupportLabel: 'サポート',

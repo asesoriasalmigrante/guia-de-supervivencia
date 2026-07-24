@@ -21,7 +21,7 @@ export const nl: Translation = {
   heroTitle2: 'De Echte Overlevingsgids',
   heroSubtitle: 'De praktische en realistische gids die je nodig hebt om je geest, je documenten en je leven voor te bereiden voordat je opnieuw begint in een ander land. Geen valse beloften, alleen onmisbare waarheden.',
   heroFormatLabel: 'Formaat',
-  heroFormatValue: 'Directe PDF',
+  heroFormatValue: 'PDF of App',
   heroContentLabel: 'Inhoud',
   heroContentValue: '100 Paginas',
   heroSupportLabel: 'Ondersteuning',

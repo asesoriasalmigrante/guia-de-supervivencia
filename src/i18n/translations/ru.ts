@@ -21,7 +21,7 @@ export const ru: Translation = {
   heroTitle2: 'Настоящее Руководство по Выживанию',
   heroSubtitle: 'Практичное и реалистичное руководство, которое вам нужно, чтобы подготовить свой разум, документы и жизнь перед началом с нуля в другой стране. Без ложных обещаний, только необходимые истины.',
   heroFormatLabel: 'Формат',
-  heroFormatValue: 'Немедленный PDF',
+  heroFormatValue: 'PDF или App',
   heroContentLabel: 'Содержание',
   heroContentValue: '100 Страниц',
   heroSupportLabel: 'Поддержка',

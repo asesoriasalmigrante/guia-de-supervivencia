@@ -21,7 +21,7 @@ export const en: Translation = {
   heroTitle2: 'The Real Survival Guide',
   heroSubtitle: 'The practical and realistic guide you need to prepare your mind, documents, and life before starting from scratch in another country. No false promises, only essential truths.',
   heroFormatLabel: 'Format',
-  heroFormatValue: 'Instant PDF',
+  heroFormatValue: 'PDF or App',
   heroContentLabel: 'Content',
   heroContentValue: '100 Pages',
   heroSupportLabel: 'Support',

@@ -23,7 +23,7 @@ export const ja: Translation = {
   heroFormatLabel: 'フォーマット',
   heroFormatValue: '即時PDF',
   heroContentLabel: 'コンテンツ',
-  heroContentValue: '+150ページ',
+  heroContentValue: '100ページ',
   heroSupportLabel: 'サポート',
   heroSupportValue: 'マルチデバイス対応',
   heroPriceLabel: '発売価格',
@@ -62,7 +62,7 @@ export const ja: Translation = {
   productPdfOriginalPrice: 'USD 29.90',
   productPdfCTA: 'PDFを入手',
   productPdfBadge: '50%節約',
-  productPdfFeature1: '150ページ以上のコンテンツ',
+  productPdfFeature1: '100ページのコンテンツ',
   productPdfFeature2: 'あらゆるデバイスに対応',
   productPdfFeature3: '即時かつ永続的なダウンロード',
   // Emotions

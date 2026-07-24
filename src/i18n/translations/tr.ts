@@ -23,7 +23,7 @@ export const tr: Translation = {
   heroFormatLabel: 'Format',
   heroFormatValue: 'Anında PDF',
   heroContentLabel: 'İçerik',
-  heroContentValue: '+150 Sayfa',
+  heroContentValue: '100 Sayfa',
   heroSupportLabel: 'Destek',
   heroSupportValue: 'Çoklu Cihaz',
   heroPriceLabel: 'Lansman fiyatı',
@@ -62,7 +62,7 @@ export const tr: Translation = {
   productPdfOriginalPrice: 'USD 29.90',
   productPdfCTA: 'PDF\'i Al',
   productPdfBadge: '%50 TASARRUF',
-  productPdfFeature1: '150+ sayfa içerik',
+  productPdfFeature1: '100 sayfa içerik',
   productPdfFeature2: 'Her cihazla uyumlu',
   productPdfFeature3: 'Anında ve kalıcı indirme',
   // Emotions

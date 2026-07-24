@@ -23,7 +23,7 @@ export const fr: Translation = {
   heroFormatLabel: 'Format',
   heroFormatValue: 'PDF Immédiat',
   heroContentLabel: 'Contenu',
-  heroContentValue: '+150 Pages',
+  heroContentValue: '100 Pages',
   heroSupportLabel: 'Support',
   heroSupportValue: 'Multi-appareil',
   heroPriceLabel: 'Prix de lancement',
@@ -62,7 +62,7 @@ export const fr: Translation = {
   productPdfOriginalPrice: 'USD 29.90',
   productPdfCTA: 'Obtenir le PDF',
   productPdfBadge: 'ÉCONOMISEZ 50%',
-  productPdfFeature1: '150+ pages de contenu',
+  productPdfFeature1: '100 pages de contenu',
   productPdfFeature2: 'Compatible avec tous les appareils',
   productPdfFeature3: 'Téléchargement immédiat et permanent',
   // Emotions

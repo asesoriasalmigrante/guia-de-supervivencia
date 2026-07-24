@@ -23,7 +23,7 @@ export const ko: Translation = {
   heroFormatLabel: '형식',
   heroFormatValue: '즉시 PDF',
   heroContentLabel: '콘텐츠',
-  heroContentValue: '+150페이지',
+  heroContentValue: '100페이지',
   heroSupportLabel: '지원',
   heroSupportValue: '다기기 지원',
   heroPriceLabel: '출시 가격',
@@ -62,7 +62,7 @@ export const ko: Translation = {
   productPdfOriginalPrice: 'USD 29.90',
   productPdfCTA: 'PDF 받기',
   productPdfBadge: '50% 절약',
-  productPdfFeature1: '150페이지 이상의 콘텐츠',
+  productPdfFeature1: '100페이지의 콘텐츠',
   productPdfFeature2: '모든 기기 호환',
   productPdfFeature3: '즉시 영구 다운로드',
   // Emotions

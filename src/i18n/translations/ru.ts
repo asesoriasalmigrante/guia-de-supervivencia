@@ -23,7 +23,7 @@ export const ru: Translation = {
   heroFormatLabel: 'Формат',
   heroFormatValue: 'Немедленный PDF',
   heroContentLabel: 'Содержание',
-  heroContentValue: '+150 Страниц',
+  heroContentValue: '100 Страниц',
   heroSupportLabel: 'Поддержка',
   heroSupportValue: 'Мульти-устройство',
   heroPriceLabel: 'Цена запуска',
@@ -62,7 +62,7 @@ export const ru: Translation = {
   productPdfOriginalPrice: 'USD 29.90',
   productPdfCTA: 'Получить PDF',
   productPdfBadge: 'ЭКОНОМИЯ 50%',
-  productPdfFeature1: '150+ страниц контента',
+  productPdfFeature1: '100 страниц контента',
   productPdfFeature2: 'Совместимо с любым устройством',
   productPdfFeature3: 'Немедленная и постоянная загрузка',
   // Emotions

@@ -23,7 +23,7 @@ export const hi: Translation = {
   heroFormatLabel: 'प्रारूप',
   heroFormatValue: 'तत्काल PDF',
   heroContentLabel: 'सामग्री',
-  heroContentValue: '+150 पृष्ठ',
+  heroContentValue: '100 पृष्ठ',
   heroSupportLabel: 'सहायता',
   heroSupportValue: 'मल्टी-डिवाइस',
   heroPriceLabel: 'लॉन्च मूल्य',
@@ -62,7 +62,7 @@ export const hi: Translation = {
   productPdfOriginalPrice: 'USD 29.90',
   productPdfCTA: 'PDF प्राप्त करें',
   productPdfBadge: '50% बचाएं',
-  productPdfFeature1: '150+ पृष्ठ सामग्री',
+  productPdfFeature1: '100 पृष्ठ सामग्री',
   productPdfFeature2: 'किसी भी डिवाइस के साथ संगत',
   productPdfFeature3: 'तत्काल और स्थायी डाउनलोड',
   // Emotions

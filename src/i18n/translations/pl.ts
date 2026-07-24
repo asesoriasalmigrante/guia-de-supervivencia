@@ -23,7 +23,7 @@ export const pl: Translation = {
   heroFormatLabel: 'Format',
   heroFormatValue: 'Natychmiastowy PDF',
   heroContentLabel: 'Zawartosc',
-  heroContentValue: '+150 Stron',
+  heroContentValue: '100 Stron',
   heroSupportLabel: 'Wsparcie',
   heroSupportValue: 'Wiele urzadzen',
   heroPriceLabel: 'Cena wprowadzenia',
@@ -62,7 +62,7 @@ export const pl: Translation = {
   productPdfOriginalPrice: 'USD 29.90',
   productPdfCTA: 'Pobierz PDF',
   productPdfBadge: 'OSZCZĘDŹ 50%',
-  productPdfFeature1: '150+ stron zawartości',
+  productPdfFeature1: '100 stron zawartości',
   productPdfFeature2: 'Kompatybilny z każdym urządzeniem',
   productPdfFeature3: 'Natychmiastowe i stałe pobieranie',
   // Emotions

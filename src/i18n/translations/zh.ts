@@ -23,7 +23,7 @@ export const zh: Translation = {
   heroFormatLabel: '格式',
   heroFormatValue: '即时PDF',
   heroContentLabel: '内容',
-  heroContentValue: '+150页',
+  heroContentValue: '100页',
   heroSupportLabel: '支持',
   heroSupportValue: '多设备兼容',
   heroPriceLabel: '发布价格',
@@ -62,7 +62,7 @@ export const zh: Translation = {
   productPdfOriginalPrice: 'USD 29.90',
   productPdfCTA: '获取PDF',
   productPdfBadge: '节省50%',
-  productPdfFeature1: '150+页内容',
+  productPdfFeature1: '100页内容',
   productPdfFeature2: '兼容任何设备',
   productPdfFeature3: '立即且永久下载',
   // Emotions

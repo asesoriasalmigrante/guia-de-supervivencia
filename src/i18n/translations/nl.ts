@@ -23,7 +23,7 @@ export const nl: Translation = {
   heroFormatLabel: 'Formaat',
   heroFormatValue: 'Directe PDF',
   heroContentLabel: 'Inhoud',
-  heroContentValue: '+150 Paginas',
+  heroContentValue: '100 Paginas',
   heroSupportLabel: 'Ondersteuning',
   heroSupportValue: 'Multi-apparaat',
   heroPriceLabel: 'Lanceerprijs',
@@ -62,7 +62,7 @@ export const nl: Translation = {
   productPdfOriginalPrice: 'USD 29.90',
   productPdfCTA: 'PDF krijgen',
   productPdfBadge: 'BESPAAR 50%',
-  productPdfFeature1: '150+ pagina\'s inhoud',
+  productPdfFeature1: '100 pagina\'s inhoud',
   productPdfFeature2: 'Compatibel met elk apparaat',
   productPdfFeature3: 'Onmiddellijke en permanente download',
   // Emotions

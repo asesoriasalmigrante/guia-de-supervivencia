@@ -23,7 +23,7 @@ export const ar: Translation = {
   heroFormatLabel: 'الشكل',
   heroFormatValue: 'PDF فوري',
   heroContentLabel: 'المحتوى',
-  heroContentValue: '+150 صفحة',
+  heroContentValue: '100 صفحة',
   heroSupportLabel: 'الدعم',
   heroSupportValue: 'متعدد الأجهزة',
   heroPriceLabel: 'سعر الإطلاق',
@@ -62,7 +62,7 @@ export const ar: Translation = {
   productPdfOriginalPrice: 'USD 29.90',
   productPdfCTA: 'احصل على PDF',
   productPdfBadge: 'وفّر 50%',
-  productPdfFeature1: 'أكثر من 150 صفحة من المحتوى',
+  productPdfFeature1: '100 صفحة من المحتوى',
   productPdfFeature2: 'متوافق مع أي جهاز',
   productPdfFeature3: 'تنزيل فوري ودائم',
   // Emotions

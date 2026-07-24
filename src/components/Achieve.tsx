@@ -1,4 +1,5 @@
 import React from "react";
+import { useI18n } from "../i18n";
 import telescopioImg from "../assets/images/icon_telescopio_1784306912354.jpg";
 import checklistCalendarioImg from "../assets/images/icon_checklist_calendario_1784306968730.jpg";
 import menteCorazonImg from "../assets/images/icon_mente_corazon_1784306926235.jpg";
@@ -6,6 +7,7 @@ import calculadoraFinanzasImg from "../assets/images/icon_calculadora_finanzas_1
 import escudoBalanzaImg from "../assets/images/icon_escudo_balanza_1784306956203.jpg";
 
 export default function Achieve() {
+  const { t } = useI18n();
   const points = [
     {
       id: 1,
@@ -17,8 +19,8 @@ export default function Achieve() {
           referrerPolicy="no-referrer"
         />
       ),
-      title: "Visión realista",
-      text: "Tener una visión realista y libre de mitos del proceso migratorio completo."
+      title: t.achieve1Title,
+      text: t.achieve1Desc
     },
     {
       id: 2,
@@ -30,8 +32,8 @@ export default function Achieve() {
           referrerPolicy="no-referrer"
         />
       ),
-      title: "Organización total",
-      text: "Organizar tu documentación académica y civil con absoluta claridad y validez."
+      title: t.achieve2Title,
+      text: t.achieve2Desc
     },
     {
       id: 3,
@@ -43,8 +45,8 @@ export default function Achieve() {
           referrerPolicy="no-referrer"
         />
       ),
-      title: "Manejo emocional",
-      text: "Preparar tu mentalidad y tus emociones para afrontar con éxito el choque cultural."
+      title: t.achieve3Title,
+      text: t.achieve3Desc
     },
     {
       id: 4,
@@ -56,8 +58,8 @@ export default function Achieve() {
           referrerPolicy="no-referrer"
         />
       ),
-      title: "Control de gastos",
-      text: "Planificar un presupuesto inicial blindado para evitar sorpresas y gastos inesperados."
+      title: t.achieve4Title,
+      text: t.achieve4Desc
     },
     {
       id: 5,
@@ -69,8 +71,8 @@ export default function Achieve() {
           referrerPolicy="no-referrer"
         />
       ),
-      title: "Seguridad legal",
-      text: "Tomar decisiones informadas que te protejan de fraudes o errores fatales."
+      title: t.achieve5Title,
+      text: t.achieve5Desc
     }
   ];
 
@@ -80,7 +82,7 @@ export default function Achieve() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-3xl font-display font-normal text-white tracking-tight">
-            Al leer esta guía, lograrás:
+            {t.achieveTitle}
           </h2>
           <div className="h-1 w-12 bg-[#E79923] mx-auto mt-4 rounded" />
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Heart } from "lucide-react";
+import { useI18n } from "../i18n";
 import listoEmigrarImg from "../assets/images/icon_listo_emigrar_1784306988190.jpg";
 import docIndispensablesImg from "../assets/images/icon_documentos_indispensables_1784307046948.jpg";
 import erroresArruinarImg from "../assets/images/icon_errores_arruinar_1784307107121.jpg";
@@ -7,6 +8,7 @@ import checklistViajarImg from "../assets/images/icon_checklist_viajar_178430711
 import accompanyIcon from "../assets/images/gold_accompany_icon_1784559283025.jpg";
 
 export default function Emotions() {
+  const { t } = useI18n();
   const emotionsList = [
     {
       id: 1,
@@ -18,7 +20,7 @@ export default function Emotions() {
           referrerPolicy="no-referrer"
         />
       ),
-      text: "Quieres empezar una nueva vida, pero no sabes por dónde comenzar."
+      text: t.emotions1
     },
     {
       id: 2,
@@ -30,7 +32,7 @@ export default function Emotions() {
           referrerPolicy="no-referrer"
         />
       ),
-      text: "Hay mucha información sobre visas y trámites, pero nadie te habla de lo que realmente importa."
+      text: t.emotions2
     },
     {
       id: 3,
@@ -42,7 +44,7 @@ export default function Emotions() {
           referrerPolicy="no-referrer"
         />
       ),
-      text: "Tienes miedo de tomar una decisión equivocada y perder tiempo, dinero u oportunidades."
+      text: t.emotions3
     },
     {
       id: 4,
@@ -54,7 +56,7 @@ export default function Emotions() {
           referrerPolicy="no-referrer"
         />
       ),
-      text: "Sabes que emigrar no es solo cambiar de país, es empezar por completo desde cero."
+      text: t.emotions4
     }
   ];
 
@@ -64,7 +66,7 @@ export default function Emotions() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-4xl font-display font-normal text-white tracking-tight">
-            ¿Te sientes así?
+            {t.emotionsTitle}
           </h2>
           <div className="h-1 w-12 bg-[#E79923] mx-auto mt-4 rounded" />
         </div>
@@ -99,16 +101,16 @@ export default function Emotions() {
                   />
                 </div>
                 <h3 className="text-lg font-display font-normal text-white leading-snug">
-                  Esta guía fue creada para acompañarte antes, durante y después de ese gran paso.
+                  {t.emotionsCardTitle}
                 </h3>
               </div>
 
               <div className="pt-6 border-t border-white/5 mt-6">
                 <p className="text-[10px] text-[#E79923] font-bold tracking-wide uppercase">
-                  UN SISTEMA REALISTA Y HUMANO
+                  {t.emotionsBadge}
                 </p>
                 <p className="text-[11px] text-[#94a3b8] mt-1 leading-relaxed">
-                  Creado por Daniela Harrington, abogada Migratoria y fundadora de Asesorías al Migrante, integrando leyes, gestión documental y vivencia migrante real.
+                  {t.emotionsBadgeDesc}
                 </p>
               </div>
             </div>

@@ -14,8 +14,10 @@ import Chatbot from "./components/Chatbot";
 import CheckoutModal from "./components/CheckoutModal";
 import DottedWorldMap from "./components/DottedWorldMap";
 import ebookCoverImg from "./assets/images/ebook_cover.jpeg";
+import { useI18n } from "./i18n";
 
 export default function App() {
+  const { t } = useI18n();
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<{ name: string; price: number; isBonus?: boolean } | null>(null);
   const promoTimerKey = "migrante_promo_timer_end";
@@ -119,8 +121,8 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
           <div className="bg-[#E79923]/10 border border-[#E79923]/20 px-3.5 py-1.5 rounded-full text-[#E79923] text-xs font-bold uppercase tracking-widest inline-block">
             {isPromoActive
-              ? `¡OFERTA ESPECIAL CON BONOS EXCLUSIVOS - TERMINA EN ${formattedTimeStr}!`
-              : "TU NUEVO CAMINO EMPIEZA HOY"}
+              ? t.promoBanner.replace("{time}", formattedTimeStr)
+              : t.promoHeading}
           </div>
 
           {/* eBook Cover Display */}
@@ -138,25 +140,25 @@ export default function App() {
 
           <h2 className="text-3xl sm:text-5xl font-display font-normal text-white tracking-tight leading-none">
             {isPromoActive
-              ? "¡No dejes pasar esta oportunidad!"
-              : "Tu nuevo camino comienza con información."}
+              ? t.promoSubheading
+              : t.promoDesc1}
           </h2>
 
           <p className="text-sm sm:text-base text-[#94a3b8] max-w-xl mx-auto leading-relaxed">
             {isPromoActive
-              ? `Compra la Guía de Supervivencia al Migrante ahora y recibe los 3 Bonos Premium valorados en USD 87 de forma completamente GRATUITA. ¡Solo por los próximos ${formattedTimeStr} minutos!`
-              : "Invierte en claridad, evita errores costosos y construye tu mejor versión en otro país con una hoja de ruta segura."}
+              ? t.promoDesc2.replace("{time}", formattedTimeStr)
+              : t.promoDesc1}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-slate-300 font-semibold pt-2">
             <span className="flex items-center">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E79923] mr-2 animate-pulse" /> Acceso inmediato
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E79923] mr-2 animate-pulse" /> {t.promoTrust1}
             </span>
             <span className="flex items-center">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E79923] mr-2 animate-pulse" /> Pago 100% seguro
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E79923] mr-2 animate-pulse" /> {t.promoTrust2}
             </span>
             <span className="flex items-center">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E79923] mr-2 animate-pulse" /> Garantía de satisfacción
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E79923] mr-2 animate-pulse" /> {t.promoTrust3}
             </span>
           </div>
 
@@ -166,14 +168,14 @@ export default function App() {
               onClick={openCheckout}
               className="bg-[#E79923] hover:bg-[#FFB73B] text-[#020712] font-black text-sm uppercase tracking-widest px-8 py-4.5 rounded-full transition-all shadow-lg shadow-[#E79923]/10 hover:shadow-xl hover:shadow-[#E79923]/35 inline-flex items-center space-x-2 active:scale-98 cursor-pointer"
             >
-              <span>Sí, quiero mi guía ahora</span>
+              <span>{t.promoCTA}</span>
               <span className="bg-[#020712]/10 text-[#020712] text-xs font-bold px-2.5 py-1 rounded-full ml-2">
                 USD 14.99
               </span>
             </button>
             {isPromoActive && (
               <div className="text-xs text-[#E79923] mt-3 font-medium">
-                ⏳ Los 3 Bonos Premium (Valorados en USD 87) serán agregados gratis en tu descarga.
+                {t.promoBonusNote}
               </div>
             )}
           </div>

@@ -5,6 +5,7 @@ import DottedWorldMap from "./DottedWorldMap";
 import formatIcon from "../assets/images/gold_format_icon_1784556100929.jpg";
 import contentIcon from "../assets/images/gold_content_icon_1784556117314.jpg";
 import supportIcon from "../assets/images/gold_support_icon_1784556133327.jpg";
+import { useI18n } from "../i18n";
 
 interface HeroProps {
   onOpenCheckout: () => void;
@@ -13,6 +14,7 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenCheckout, timeLeftStr, isPromoActive }: HeroProps) {
+  const { t } = useI18n();
   return (
     <section id="la-guia" className="relative bg-gradient-to-b from-[#020712] via-[#0A2140] to-[#040E1B] text-[#e2e8f0] overflow-hidden py-16 lg:py-24 border-b border-blue-500/15">
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
@@ -37,18 +39,18 @@ export default function Hero({ onOpenCheckout, timeLeftStr, isPromoActive }: Her
           <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
             <div className="inline-flex items-center space-x-2 bg-[#E79923]/10 border border-[#E79923]/20 px-3.5 py-1.5 rounded-full text-[#E79923] text-xs font-semibold uppercase tracking-wider">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E79923] animate-pulse" />
-              <span>Guía Digital Completa</span>
+              <span>{t.heroBadge}</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-normal text-white tracking-tight leading-none">
-              Mudarse a Otro País:
+              {t.heroTitle1}
               <span className="block mt-2 bg-gradient-to-r from-[#E79923] via-[#FFC73C] to-[#FFF3D1] bg-clip-text text-transparent font-extrabold tracking-tight">
-                La Verdadera Guía de Supervivencia
+                {t.heroTitle2}
               </span>
             </h1>
 
             <p className="text-lg sm:text-xl text-[#94a3b8] font-sans max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              La guía práctica y realista que necesitas para preparar tu mente, tus documentos y tu vida antes de empezar de cero en otro país. Sin falsas promesas, solo verdades indispensables.
+              {t.heroSubtitle}
             </p>
 
             <div className="grid grid-cols-3 gap-3 max-w-xl mx-auto lg:mx-0 pt-2">
@@ -61,8 +63,8 @@ export default function Hero({ onOpenCheckout, timeLeftStr, isPromoActive }: Her
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <span className="text-xs text-[#94a3b8] font-medium">Formato</span>
-                <span className="text-sm font-bold text-white">PDF Inmediato</span>
+                <span className="text-xs text-[#94a3b8] font-medium">{t.heroFormatLabel}</span>
+                <span className="text-sm font-bold text-white">{t.heroFormatValue}</span>
               </div>
 
               <div className="flex flex-col items-center lg:items-start p-3 bg-white/[0.02] border border-white/5 rounded-xl">
@@ -74,8 +76,8 @@ export default function Hero({ onOpenCheckout, timeLeftStr, isPromoActive }: Her
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <span className="text-xs text-[#94a3b8] font-medium">Contenido</span>
-                <span className="text-sm font-bold text-white">+150 Páginas</span>
+                <span className="text-xs text-[#94a3b8] font-medium">{t.heroContentLabel}</span>
+                <span className="text-sm font-bold text-white">{t.heroContentValue}</span>
               </div>
 
               <div className="flex flex-col items-center lg:items-start p-3 bg-white/[0.02] border border-white/5 rounded-xl">
@@ -87,8 +89,8 @@ export default function Hero({ onOpenCheckout, timeLeftStr, isPromoActive }: Her
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <span className="text-xs text-[#94a3b8] font-medium">Soporte</span>
-                <span className="text-sm font-bold text-white">Multi-dispositivo</span>
+                <span className="text-xs text-[#94a3b8] font-medium">{t.heroSupportLabel}</span>
+                <span className="text-sm font-bold text-white">{t.heroSupportValue}</span>
               </div>
             </div>
           </div>
@@ -150,11 +152,11 @@ export default function Hero({ onOpenCheckout, timeLeftStr, isPromoActive }: Her
               {/* Price and Details */}
               <div className="md:col-span-5 text-center md:text-left">
                 <span className="text-xs font-bold text-[#E79923] tracking-wider uppercase block mb-1">
-                  Precio de lanzamiento
+                  {t.heroPriceLabel}
                 </span>
                 <div className="flex items-baseline justify-center md:justify-start space-x-2">
-                  <span className="text-4xl sm:text-5xl font-black text-white">USD 14.99</span>
-                  <span className="text-base text-slate-500 line-through">USD 29.90</span>
+                  <span className="text-4xl sm:text-5xl font-black text-white">{t.heroPriceDiscount}</span>
+                  <span className="text-base text-slate-500 line-through">{t.heroPriceOriginal}</span>
                 </div>
                 <div className="mt-3 inline-block bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
                   Ahorras 50% de inmediato
@@ -169,12 +171,12 @@ export default function Hero({ onOpenCheckout, timeLeftStr, isPromoActive }: Her
                   className="w-full bg-[#E79923] hover:bg-[#FFB73B] text-[#0B2447] font-black text-sm uppercase tracking-widest py-4 px-6 rounded-full flex items-center justify-center space-x-2 transition-all duration-200 shadow-lg shadow-[#E79923]/10 hover:shadow-xl hover:shadow-[#E79923]/35 active:scale-[0.99] cursor-pointer"
                 >
                   <ShoppingCart className="h-5 w-5" />
-                  <span>Quiero mi guía ahora</span>
+                  <span>{t.heroCTA}</span>
                 </button>
 
                 <p className="text-xs text-[#94a3b8] flex items-center justify-center space-x-1">
                   <ShieldCheck className="h-4 w-4 text-emerald-500 inline mr-1" />
-                  <span>Pago 100% seguro • Acceso inmediato post-pago</span>
+                  <span>{t.heroSecure}</span>
                 </p>
               </div>
             </div>
@@ -185,7 +187,7 @@ export default function Hero({ onOpenCheckout, timeLeftStr, isPromoActive }: Her
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs">
                   <span className="font-bold text-[#E79923] flex items-center justify-center sm:justify-start">
                     <span className="w-1.5 h-1.5 rounded-full bg-red-500 mr-1.5 animate-ping" />
-                    ¡PROMO EXCLUSIVA CON 3 BONOS GRATIS! termina en:
+                    {t.heroPromoTitle}
                   </span>
                   <span className="font-mono bg-slate-950 px-3 py-1 rounded text-[#E79923] font-black text-sm text-center">
                     {timeLeftStr}
@@ -195,8 +197,8 @@ export default function Hero({ onOpenCheckout, timeLeftStr, isPromoActive }: Her
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
                   <div className="bg-white/[0.01] border border-white/5 rounded-xl p-3.5 text-xs text-slate-300 flex flex-col justify-between">
                     <div>
-                      <span className="text-[#E79923] font-semibold block mb-1">🎁 Bono 1</span>
-                      <span>Test “¿Estás realmente listo para emigrar?”</span>
+                      <span className="text-[#E79923] font-semibold block mb-1">{t.heroPromoBono1}</span>
+                      <span>{t.heroPromoBono1Title}</span>
                     </div>
                     <span className="text-[#E79923] font-bold mt-2 text-right block text-[11px]">
                       GRATIS <span className="line-through text-slate-500 font-normal ml-1">USD 19</span>
@@ -205,8 +207,8 @@ export default function Hero({ onOpenCheckout, timeLeftStr, isPromoActive }: Her
 
                   <div className="bg-white/[0.01] border border-white/5 rounded-xl p-3.5 text-xs text-slate-300 flex flex-col justify-between">
                     <div>
-                      <span className="text-[#E79923] font-semibold block mb-1">🎁 Bono 2</span>
-                      <span>Kit de Emergencia del Migrante</span>
+                      <span className="text-[#E79923] font-semibold block mb-1">{t.heroPromoBono2}</span>
+                      <span>{t.heroPromoBono2Title}</span>
                     </div>
                     <span className="text-[#E79923] font-bold mt-2 text-right block text-[11px]">
                       GRATIS <span className="line-through text-slate-500 font-normal ml-1">USD 29</span>
@@ -215,8 +217,8 @@ export default function Hero({ onOpenCheckout, timeLeftStr, isPromoActive }: Her
 
                   <div className="bg-white/[0.01] border border-white/5 rounded-xl p-3.5 text-xs text-slate-300 flex flex-col justify-between">
                     <div>
-                      <span className="text-[#E79923] font-semibold block mb-1">🎁 Bono 3</span>
-                      <span>Plan de Preparación en 90 Días</span>
+                      <span className="text-[#E79923] font-semibold block mb-1">{t.heroPromoBono3}</span>
+                      <span>{t.heroPromoBono3Title}</span>
                     </div>
                     <span className="text-[#E79923] font-bold mt-2 text-right block text-[11px]">
                       GRATIS <span className="line-through text-slate-500 font-normal ml-1">USD 39</span>
@@ -225,19 +227,19 @@ export default function Hero({ onOpenCheckout, timeLeftStr, isPromoActive }: Her
                 </div>
 
                 <div className="pt-3 border-t border-white/5 text-[10.5px] text-emerald-400 font-semibold text-center">
-                  ⚡ ¡Ahorras USD 87 adicionales si compras antes de que termine el reloj!
+                  {t.heroPromoSavings}
                 </div>
               </div>
             ) : (
               <div className="border-t border-white/10 pt-4 text-center text-xs text-rose-400 font-medium">
-                ⏳ La promoción de los 3 bonos premium gratuitos ha expirado, pero aún puedes adquirir la guía por el precio de lanzamiento de USD 14.99.
+                {t.heroPromoExpired}
               </div>
             )}
 
             {/* Payment Processing Logos */}
             <div className="border-t border-white/5 pt-4 text-center space-y-2">
               <p className="text-[10px] uppercase tracking-widest text-slate-400 font-semibold">
-                Pagos Seguros Procesados Con:
+                {t.heroPaymentTitle}
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-semibold text-slate-300">
                 <span className="flex items-center bg-white/[0.02] px-3 py-1 rounded-lg border border-white/5">
@@ -250,7 +252,7 @@ export default function Hero({ onOpenCheckout, timeLeftStr, isPromoActive }: Her
                   <span className="text-blue-400 font-bold mr-1">m</span> MercadoPago
                 </span>
                 <span className="text-slate-400 text-[11px] flex items-center ml-2">
-                  <ShieldCheck className="h-3.5 w-3.5 text-emerald-500 mr-1" /> Datos protegidos
+                  <ShieldCheck className="h-3.5 w-3.5 text-emerald-500 mr-1" /> {t.heroPaymentSecure}
                 </span>
               </div>
             </div>

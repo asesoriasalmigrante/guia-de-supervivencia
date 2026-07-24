@@ -4,7 +4,7 @@ import { GoogleGenAI } from "@google/genai";
 import { createServer as createViteServer } from "vite";
 
 const app = express();
-const PORT = 3000;
+const PORT = parseInt(process.env.PORT || "3001", 10);
 
 // Initialize GoogleGenAI SDK safely
 const apiKey = process.env.GEMINI_API_KEY;

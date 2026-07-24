@@ -1,5 +1,6 @@
 import React from "react";
 import { Check, ShieldCheck, Heart } from "lucide-react";
+import { useI18n } from "../i18n";
 import danielaGomezImg from "../assets/images/daniela_oficina.jpeg";
 import accompanyIcon from "../assets/images/gold_accompany_icon_1784559283025.jpg";
 import goldChecklistIcon from "../assets/images/gold_checklist_icon_1784734962119.jpg";
@@ -13,32 +14,12 @@ interface AuthorAndBonusProps {
 }
 
 export default function AuthorAndBonus({ timeLeftStr, isPromoActive, onOpenCheckout }: AuthorAndBonusProps) {
-  const contentIncludes = [
-    {
-      text: "Ebook principal digital en formato PDF de alta resolución.",
-      sub: "Lectura instantánea tras el pago."
-    },
-    {
-      text: "Más de 150 páginas de metodologías y vivencias reales.",
-      sub: "Sin contenido de relleno."
-    },
-    {
-      text: "Checklist interactivo de documentos y finanzas descargable.",
-      sub: "En formato Excel y PDF imprimible."
-    },
-    {
-      text: "Acceso ilimitado de lectura desde cualquier dispositivo.",
-      sub: "Celular, tablet o computadora."
-    },
-    {
-      text: "Actualizaciones futuras gratuitas de por vida.",
-      sub: "Nuevas ediciones sin pagar más."
-    },
-    {
-      text: "Soporte prioritario pre y post-venta por correo electrónico.",
-      sub: "Respuestas personalizadas en menos de 48 horas."
-    }
-  ];
+  const { t } = useI18n();
+
+  const contentIncludes = t.authorIncludes.map((text, i) => ({
+    text,
+    sub: t.authorIncludesSub[i],
+  }));
 
   return (
     <section id="sobre-la-autora" className="py-20 bg-gradient-to-b from-[#030914] via-[#091b35] to-[#040e1b] text-[#e2e8f0] border-b border-blue-500/10 relative overflow-hidden">
@@ -51,10 +32,10 @@ export default function AuthorAndBonus({ timeLeftStr, isPromoActive, onOpenCheck
           <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
             <div className="space-y-4">
               <span className="text-xs font-bold uppercase tracking-widest text-[#E79923] block">
-                El Paquete Completo
+                {t.authorBadge}
               </span>
               <h2 className="text-3xl font-display font-normal text-white tracking-tight">
-                Con tu compra recibes:
+                {t.authorTitle}
               </h2>
               <div className="h-1 w-12 bg-[#E79923] rounded" />
             </div>
@@ -85,24 +66,24 @@ export default function AuthorAndBonus({ timeLeftStr, isPromoActive, onOpenCheck
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-black uppercase tracking-widest text-[#E79923] flex items-center">
                     <span className="w-2 h-2 rounded-full bg-red-500 mr-2 animate-ping" />
-                    ¡3 Bonos Exclusivos Incluidos Gratis!
+                    {t.authorBonusActive}
                   </span>
                   <span className="text-xs font-mono font-bold bg-slate-950 px-2 py-0.5 rounded text-[#E79923]">
-                    Quedan: {timeLeftStr}
+                    {t.authorBonusTime.replace("{timeLeftStr}", timeLeftStr)}
                   </span>
                 </div>
                 <p className="text-xs text-[#94a3b8]">
-                  Si completas tu pedido en los próximos {timeLeftStr} minutos, recibirás de forma 100% gratuita los siguientes recursos desarrollados por Daniela:
+                  {t.authorBonusDesc.replace("{timeLeftStr}", timeLeftStr)}
                 </p>
                 <div className="space-y-2.5 text-xs">
                   <div className="flex space-x-2.5 items-start">
                     <span className="text-[#E79923]">🎁</span>
                     <div>
                       <strong className="text-white block font-semibold text-[11px] sm:text-xs">
-                        Bono #1: Test “¿Estás realmente listo para emigrar?” (Valor USD 19)
+                        {t.authorBonus1}
                       </strong>
                       <span className="text-[#94a3b8] text-[10px] block mt-0.5 leading-snug">
-                        Autoevaluación psicológica y actitudinal con reporte de preparación instantáneo.
+                        {t.authorBonus1Desc}
                       </span>
                     </div>
                   </div>
@@ -111,10 +92,10 @@ export default function AuthorAndBonus({ timeLeftStr, isPromoActive, onOpenCheck
                     <span className="text-[#E79923]">🎁</span>
                     <div>
                       <strong className="text-white block font-semibold text-[11px] sm:text-xs">
-                        Bono #2: Kit de Emergencia del Migrante (Valor USD 29)
+                        {t.authorBonus2}
                       </strong>
                       <span className="text-[#94a3b8] text-[10px] block mt-0.5 leading-snug">
-                        Protocolos rápidos ante pérdida de equipaje, documentos extraviados o emergencias de salud.
+                        {t.authorBonus2Desc}
                       </span>
                     </div>
                   </div>
@@ -123,10 +104,10 @@ export default function AuthorAndBonus({ timeLeftStr, isPromoActive, onOpenCheck
                     <span className="text-[#E79923]">🎁</span>
                     <div>
                       <strong className="text-white block font-semibold text-[11px] sm:text-xs">
-                        Bono #3: Plan de Preparación para Emigrar en 90 Días (Valor USD 39)
+                        {t.authorBonus3}
                       </strong>
                       <span className="text-[#94a3b8] text-[10px] block mt-0.5 leading-snug">
-                        Calendario paso a paso con las tareas organizadas mes a mes antes de abordar tu avión.
+                        {t.authorBonus3Desc}
                       </span>
                     </div>
                   </div>
@@ -134,17 +115,17 @@ export default function AuthorAndBonus({ timeLeftStr, isPromoActive, onOpenCheck
               </div>
             ) : (
               <div className="bg-rose-950/10 border border-rose-500/10 p-4 rounded-xl text-xs text-rose-300 mt-4 text-left">
-                ⏳ Los 3 Bonos de Regalo (Valorados en USD 87) han expirado, pero aún puedes comprar la guía de supervivencia por el precio reducido de lanzamiento de USD 14.99.
+                {t.authorBonusExpired}
               </div>
             )}
 
             <div className="bg-[#E79923]/10 text-[#e2e8f0] p-4 rounded-xl border border-[#E79923]/20 text-xs sm:text-sm mt-4 flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <ShieldCheck className="h-5 w-5 text-emerald-400" />
-                <span className="font-semibold">Garantía de Satisfacción de 3 días</span>
+                <span className="font-semibold">{t.authorGuarantee}</span>
               </div>
               <span className="text-[10px] bg-[#E79923]/15 text-[#E79923] font-bold px-2 py-0.5 rounded border border-[#E79923]/25 uppercase font-display">
-                Sin preguntas
+                {t.authorGuaranteeSub}
               </span>
             </div>
           </div>
@@ -163,23 +144,23 @@ export default function AuthorAndBonus({ timeLeftStr, isPromoActive, onOpenCheck
                 </div>
                 <div className="space-y-1 text-center sm:text-left">
                   <span className="text-xs font-bold text-[#E79923] uppercase tracking-wider block">
-                    Sobre la autora
+                    {t.authorSectionTitle}
                   </span>
                   <h3 className="text-xl sm:text-2xl font-display font-normal text-white">
-                    Daniela Harrington
+                    {t.authorName}
                   </h3>
                   <p className="text-xs text-[#94a3b8] font-medium">
-                    Abogada Migratoria y fundadora de Asesorías al Migrante
+                    {t.authorRole}
                   </p>
                 </div>
               </div>
 
               <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed font-sans">
                 <p>
-                  Soy Daniela Harrington, abogada experta en Derecho Migratorio, gestión documental internacional y fundadora de Asesorías al Migrante. También soy migrante, y por eso entiendo de primera mano los retos, miedos y oportunidades que trae empezar de cero en otro país.
+                  {t.authorBio1}
                 </p>
                 <p>
-                  A lo largo de mi carrera profesional he acompañado a cientos de personas a organizar sus carpetas de documentos, estructurar sus presupuestos y avanzar con total seguridad jurídica. Esta guía recopila mis años de experiencia legal y mi propia vivencia para darte una hoja de ruta transparente, honesta y realista.
+                  {t.authorBio2}
                 </p>
               </div>
             </div>
@@ -195,11 +176,11 @@ export default function AuthorAndBonus({ timeLeftStr, isPromoActive, onOpenCheck
                   />
                 </div>
                 <span className="text-xs sm:text-sm font-bold font-display italic text-[#E79923]">
-                  “Esta guía es mi forma de acompañarte a ti.”
+                  "{t.authorQuote}"
                 </span>
               </div>
               <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider self-start sm:self-auto">
-                MIGRANTE Y ABOGADA
+                {t.authorBadge2}
               </span>
             </div>
           </div>
@@ -209,13 +190,13 @@ export default function AuthorAndBonus({ timeLeftStr, isPromoActive, onOpenCheck
         <div className="mt-16 pt-16 border-t border-white/5 space-y-10">
           <div className="text-center space-y-3 max-w-2xl mx-auto">
             <span className="text-xs font-bold uppercase tracking-widest text-[#E79923] bg-[#E79923]/10 px-3.5 py-1.5 rounded-full">
-              Recursos por Separado
+              {t.resourcesBadge}
             </span>
             <h3 className="text-2xl sm:text-3xl font-display font-normal text-white tracking-tight">
-              ¿No quieres la guía completa? Compra un recurso individual
+              {t.resourcesTitle}
             </h3>
             <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed">
-              Si únicamente estás interesado en una herramienta específica para tu planificación y prefieres no adquirir la guía completa hoy, puedes comprar cualquiera de nuestros recursos premium por separado con acceso inmediato e ilimitado.
+              {t.resourcesDesc}
             </p>
           </div>
 
@@ -233,16 +214,16 @@ export default function AuthorAndBonus({ timeLeftStr, isPromoActive, onOpenCheck
                     />
                   </div>
                   <h4 className="text-base font-bold text-white leading-snug">
-                    Test “¿Estás realmente listo para emigrar?”
+                    {t.resource1Title}
                   </h4>
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed pt-1">
-                  Un sistema interactivo de autoevaluación psicológica, emocional y financiera que te dará una puntuación de preparación instantánea y consejos de adaptación.
+                  {t.resource1Desc}
                 </p>
               </div>
               <div className="space-y-4 pt-4 border-t border-white/5">
                 <div className="flex items-baseline justify-between">
-                  <span className="text-xs text-slate-500">Precio individual:</span>
+                  <span className="text-xs text-slate-500">{t.resourcePrice}</span>
                   <div className="flex items-baseline space-x-2">
                     <span className="text-lg font-black text-white">USD 7.99</span>
                     <span className="text-xs text-slate-500 line-through">USD 19.00</span>
@@ -250,13 +231,13 @@ export default function AuthorAndBonus({ timeLeftStr, isPromoActive, onOpenCheck
                 </div>
                 <button
                   onClick={() => onOpenCheckout({
-                    name: "Test “¿Estás realmente listo para emigrar?”",
+                    name: 'Test "Estás realmente listo para emigrar?"',
                     price: 7.99,
                     isBonus: true
                   })}
                   className="w-full bg-[#E79923]/10 hover:bg-[#E79923] text-[#E79923] hover:text-[#0B2447] font-bold text-[11px] uppercase tracking-wider py-2.5 px-4 rounded-xl transition-all duration-200 text-center cursor-pointer"
                 >
-                  Adquirir este recurso solo
+                  {t.resourceCTA}
                 </button>
               </div>
             </div>
@@ -274,16 +255,16 @@ export default function AuthorAndBonus({ timeLeftStr, isPromoActive, onOpenCheck
                     />
                   </div>
                   <h4 className="text-base font-bold text-white leading-snug">
-                    Kit de Emergencia del Migrante
+                    {t.resource2Title}
                   </h4>
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed pt-1">
-                  Protocolos, listas rápidas de contingencia y directorios clave mundiales para reaccionar ante pérdida de documentos, cancelaciones de vuelos o salud.
+                  {t.resource2Desc}
                 </p>
               </div>
               <div className="space-y-4 pt-4 border-t border-white/5">
                 <div className="flex items-baseline justify-between">
-                  <span className="text-xs text-slate-500">Precio individual:</span>
+                  <span className="text-xs text-slate-500">{t.resourcePrice}</span>
                   <div className="flex items-baseline space-x-2">
                     <span className="text-lg font-black text-white">USD 9.99</span>
                     <span className="text-xs text-slate-500 line-through">USD 29.00</span>
@@ -297,7 +278,7 @@ export default function AuthorAndBonus({ timeLeftStr, isPromoActive, onOpenCheck
                   })}
                   className="w-full bg-[#E79923]/10 hover:bg-[#E79923] text-[#E79923] hover:text-[#0B2447] font-bold text-[11px] uppercase tracking-wider py-2.5 px-4 rounded-xl transition-all duration-200 text-center cursor-pointer"
                 >
-                  Adquirir este recurso solo
+                  {t.resourceCTA}
                 </button>
               </div>
             </div>
@@ -315,16 +296,16 @@ export default function AuthorAndBonus({ timeLeftStr, isPromoActive, onOpenCheck
                     />
                   </div>
                   <h4 className="text-base font-bold text-white leading-snug">
-                    Plan de Preparación en 90 Días
+                    {t.resource3Title}
                   </h4>
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed pt-1">
-                  Planificador paso a paso detallado por semanas con hitos administrativos, familiares y financieros indispensables antes de abordar el avión.
+                  {t.resource3Desc}
                 </p>
               </div>
               <div className="space-y-4 pt-4 border-t border-white/5">
                 <div className="flex items-baseline justify-between">
-                  <span className="text-xs text-slate-500">Precio individual:</span>
+                  <span className="text-xs text-slate-500">{t.resourcePrice}</span>
                   <div className="flex items-baseline space-x-2">
                     <span className="text-lg font-black text-white">USD 12.99</span>
                     <span className="text-xs text-slate-500 line-through">USD 39.00</span>
@@ -338,7 +319,7 @@ export default function AuthorAndBonus({ timeLeftStr, isPromoActive, onOpenCheck
                   })}
                   className="w-full bg-[#E79923]/10 hover:bg-[#E79923] text-[#E79923] hover:text-[#0B2447] font-bold text-[11px] uppercase tracking-wider py-2.5 px-4 rounded-xl transition-all duration-200 text-center cursor-pointer"
                 >
-                  Adquirir este recurso solo
+                  {t.resourceCTA}
                 </button>
               </div>
             </div>

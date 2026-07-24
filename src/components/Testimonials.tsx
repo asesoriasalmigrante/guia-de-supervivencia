@@ -1,36 +1,38 @@
 import React, { useState } from "react";
 import { Quote, Star, ChevronLeft, ChevronRight, MessageSquarePlus, CheckCircle, Send } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { useI18n } from "../i18n";
 
 export default function Testimonials() {
+  const { t } = useI18n();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [reviewsList, setReviewsList] = useState([
     {
       id: 1,
-      name: "María G.",
-      role: "Estudiante en España",
-      text: "Me ayudó a organizar todo lo que tenía en la cabeza. No sabía qué documentos legalizar primero y el Módulo 3 fue mi salvación. Es como tener una mentora guiándote paso a paso.",
+      name: t.testimonial1Name,
+      role: t.testimonial1Role,
+      text: t.testimonial1Text,
       rating: 5,
       avatar: "MG",
-      country: "🇪🇸 España"
+      country: t.testimonial1Country
     },
     {
       id: 2,
-      name: "Carlos M.",
-      role: "Profesional en Canadá",
-      text: "Muy completa, práctica y realista. Me sentí acompañado en cada página. La calculadora financiera del Módulo 2 me salvó de cometer errores fatales con mis ahorros de partida.",
+      name: t.testimonial2Name,
+      role: t.testimonial2Role,
+      text: t.testimonial2Text,
       rating: 5,
       avatar: "CM",
-      country: "🇨🇦 Canadá"
+      country: t.testimonial2Country
     },
     {
       id: 3,
-      name: "Ana R.",
-      role: "Reciente migrante en Chile",
-      text: "La recomiendo 100%. Tiene todo lo que necesitas saber antes de tomar la decisión de mudarte. Daniela habla desde la experiencia real, sin rodeos teóricos o falsas promesas.",
+      name: t.testimonial3Name,
+      role: t.testimonial3Role,
+      text: t.testimonial3Text,
       rating: 5,
       avatar: "AR",
-      country: "🇨🇱 Chile"
+      country: t.testimonial3Country
     }
   ]);
 
@@ -102,10 +104,10 @@ export default function Testimonials() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-xs font-bold uppercase tracking-widest text-[#E79923] block mb-2">
-            Casos de Éxito
+            {t.testimonialsBadge}
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-normal text-white tracking-tight">
-            Lo que dicen quienes ya la leyeron
+            {t.testimonialsTitle}
           </h2>
           <div className="h-1 w-12 bg-[#E79923] mx-auto mt-4 rounded" />
         </div>
@@ -117,7 +119,7 @@ export default function Testimonials() {
             id="testimonial-prev-btn"
             onClick={handlePrev}
             className="absolute left-0 top-1/2 -translate-y-1/2 p-2 sm:p-3 rounded-full bg-[#081223]/60 hover:bg-blue-950/50 text-[#94a3b8] hover:text-white border border-blue-500/15 hover:border-blue-500/40 transition-all duration-200 cursor-pointer z-20 hover:shadow-lg hover:shadow-blue-500/10"
-            aria-label="Testimonio anterior"
+            aria-label={t.testimonialsPrev}
           >
             <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
@@ -173,7 +175,7 @@ export default function Testimonials() {
             id="testimonial-next-btn"
             onClick={handleNext}
             className="absolute right-0 top-1/2 -translate-y-1/2 p-2 sm:p-3 rounded-full bg-white/[0.02] hover:bg-white/[0.08] text-[#94a3b8] hover:text-white border border-white/5 hover:border-[#E79923]/50 transition-all duration-200 cursor-pointer z-20 hover:shadow-lg hover:shadow-[#E79923]/5"
-            aria-label="Siguiente testimonio"
+            aria-label={t.testimonialsNext}
           >
             <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
@@ -204,13 +206,13 @@ export default function Testimonials() {
             <div className="text-center max-w-xl mx-auto mb-8">
               <div className="inline-flex items-center gap-2 bg-[#E79923]/10 border border-[#E79923]/30 px-3 py-1 rounded-full text-[#E79923] text-xs font-bold uppercase tracking-widest mb-3">
                 <MessageSquarePlus className="w-3.5 h-3.5" />
-                <span>Tu Opinión Cuenta</span>
+                <span>{t.reviewTitle}</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-display text-white tracking-tight">
-                Déjanos tu Reseña
+                {t.reviewSubtitle}
               </h3>
               <p className="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
-                ¿Ya utilizaste nuestra guía o recursos? Comparte tu experiencia para ayudar a otros migrantes en su camino.
+                {t.reviewDesc}
               </p>
             </div>
 
@@ -219,15 +221,15 @@ export default function Testimonials() {
                 <div className="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto">
                   <CheckCircle className="w-6 h-6" />
                 </div>
-                <h4 className="text-lg font-bold text-white">¡Muchas gracias por tu reseña!</h4>
+                <h4 className="text-lg font-bold text-white">{t.reviewSuccessTitle}</h4>
                 <p className="text-xs text-slate-300 max-w-md mx-auto">
-                  Tu comentario ha sido añadido a nuestra comunidad. Apreciamos enormemente tus palabras y tu confianza.
+                  {t.reviewSuccessText}
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
                   className="mt-2 text-xs font-semibold text-[#E79923] hover:underline cursor-pointer"
                 >
-                  Escribir otra reseña
+                  {t.reviewSuccessBtn}
                 </button>
               </div>
             ) : (
@@ -241,12 +243,12 @@ export default function Testimonials() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <label className="text-[11px] font-bold text-slate-300 uppercase tracking-wider block">
-                      Tu Nombre / Alias *
+                      {t.reviewNameLabel}
                     </label>
                     <input
                       id="review-input-name"
                       type="text"
-                      placeholder="Ej. Laura M."
+                      placeholder={t.reviewNamePh}
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       className="w-full bg-white/5 border border-white/10 text-white px-3.5 py-2.5 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#E79923] placeholder-slate-500"
@@ -255,12 +257,12 @@ export default function Testimonials() {
 
                   <div className="space-y-1.5">
                     <label className="text-[11px] font-bold text-slate-300 uppercase tracking-wider block">
-                      País / Situación (Opcional)
+                      {t.reviewCountryLabel}
                     </label>
                     <input
                       id="review-input-role"
                       type="text"
-                      placeholder="Ej. Residente en España"
+                      placeholder={t.reviewCountryPh}
                       value={role}
                       onChange={(e) => setRole(e.target.value)}
                       className="w-full bg-white/5 border border-white/10 text-white px-3.5 py-2.5 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#E79923] placeholder-slate-500"
@@ -270,7 +272,7 @@ export default function Testimonials() {
 
                 <div className="space-y-1.5">
                   <label className="text-[11px] font-bold text-slate-300 uppercase tracking-wider block">
-                    Puntuación *
+                    {t.reviewRatingLabel}
                   </label>
                   <div className="flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-2.5 rounded-xl">
                     {[1, 2, 3, 4, 5].map((star) => (
@@ -300,12 +302,12 @@ export default function Testimonials() {
 
                 <div className="space-y-1.5">
                   <label className="text-[11px] font-bold text-slate-300 uppercase tracking-wider block">
-                    Tu Reseña / Opinión *
+                    {t.reviewTextLabel}
                   </label>
                   <textarea
                     id="review-input-text"
                     rows={4}
-                    placeholder="Cuéntanos qué fue lo que más te sirvió o cómo te ayudó el contenido..."
+                    placeholder={t.reviewTextPh}
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     className="w-full bg-white/5 border border-white/10 text-white p-3.5 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#E79923] placeholder-slate-500 resize-none"
@@ -318,7 +320,7 @@ export default function Testimonials() {
                   className="w-full bg-gradient-to-r from-[#E79923] via-[#f5aa38] to-[#E79923] hover:from-[#f5aa38] hover:to-[#E79923] text-slate-950 font-bold py-3 px-6 rounded-xl text-xs uppercase tracking-widest shadow-lg shadow-[#E79923]/20 flex items-center justify-center space-x-2 transition-all duration-300 active:scale-98 cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
-                  <span>Publicar mi Reseña</span>
+                  <span>{t.reviewSubmit}</span>
                 </button>
               </form>
             )}

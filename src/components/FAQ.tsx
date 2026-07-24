@@ -1,49 +1,51 @@
 import React, { useState } from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
+import { useI18n } from "../i18n";
 
 export default function FAQ() {
   const [openId, setOpenId] = useState<number | null>(null);
+  const { t } = useI18n();
 
   const faqs = [
     {
       id: 1,
-      question: "¿Cómo recibiré la guía?",
-      answer: "Inmediatamente después de realizar tu pago seguro, recibirás un correo electrónico con un enlace para descargar la guía en formato PDF de alta resolución. También podrás descargarla directamente desde la pantalla de confirmación en esta misma página web."
+      question: t.faq1Q,
+      answer: t.faq1A
     },
     {
       id: 2,
-      question: "¿Puedo leer la guía desde mi celular o tablet?",
-      answer: "Sí, por supuesto. La guía está optimizada en formato digital estándar PDF compatible con todos los lectores de ebooks modernos en smartphones, tabletas (iOS, Android, Kindle), laptops y computadoras de escritorio."
+      question: t.faq2Q,
+      answer: t.faq2A
     },
     {
       id: 3,
-      question: "¿La guía está enfocada en un país específico?",
-      answer: "No. Se trata de un sistema universal y organizativo aplicable a cualquier proceso de emigración (España, Canadá, Estados Unidos, Australia, etc.). No contiene leyes nacionales específicas, sino la metodología integral de planificación financiera, ordenamiento civil de documentos, manejo emocional y adaptación cultural común a todo proceso migratorio exitoso."
+      question: t.faq3Q,
+      answer: t.faq3A
     },
     {
       id: 4,
-      question: "¿Necesito tener experiencia migratoria para entenderla?",
-      answer: "Para nada. La guía está escrita en un lenguaje sumamente sencillo, empático y libre de tecnicismos legales densos. Está diseñada para guiar desde cero tanto a personas que recién están considerando mudarse como a migrantes recientes en plena etapa de adaptación."
+      question: t.faq4Q,
+      answer: t.faq4A
     },
     {
       id: 5,
-      question: "¿Incluye asesoría personalizada?",
-      answer: "No, la guía digital es de auto-estudio y planificación autónoma. Sin embargo, con tu compra adquieres soporte prioritario por correo electrónico donde Daniela y su equipo responderán dudas conceptuales relacionadas con las metodologías explicadas en la guía."
+      question: t.faq5Q,
+      answer: t.faq5A
     },
     {
       id: 6,
-      question: "¿El pago es único?",
-      answer: "Sí, es un pago único de USD 14.99. No existen suscripciones recurrentes, cargos sorpresa ni costos de mantenimiento. Pagas una sola vez y adquieres el ebook junto con todas sus actualizaciones de por vida."
+      question: t.faq6Q,
+      answer: t.faq6A
     },
     {
       id: 7,
-      question: "¿Puedo solicitar un reembolso?",
-      answer: "Sí. Contamos con una garantía de satisfacción total de 3 días. Si por alguna razón sientes que la guía no cumple con tus expectativas o no te aporta el valor prometido, escríbenos a nuestro correo de soporte y realizaremos la devolución del 100% de tu dinero de forma inmediata y sin preguntas."
+      question: t.faq7Q,
+      answer: t.faq7A
     },
     {
       id: 8,
-      question: "¿Qué pasa si tengo dudas después de comprarla?",
-      answer: "Junto con la guía digital se incluye soporte post-venta por email de por vida. Puedes escribirnos en cualquier momento para aclaraciones técnicas sobre cómo organizar tus carpetas de documentos o estructurar tus hojas de presupuesto."
+      question: t.faq8Q,
+      answer: t.faq8A
     }
   ];
 
@@ -57,10 +59,10 @@ export default function FAQ() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-xs font-bold uppercase tracking-widest text-[#E79923] block mb-2">
-            Resolviendo tus Dudas
+            {t.faqBadge}
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-normal text-white tracking-tight">
-            Preguntas frecuentes
+            {t.faqTitle}
           </h2>
           <div className="h-1 w-12 bg-[#E79923] mx-auto mt-4 rounded" />
         </div>

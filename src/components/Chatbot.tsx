@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { MessageSquare, X, Loader2, Heart, Send } from "lucide-react";
 import danielaGomezImg from "../assets/images/daniela_oficina.jpeg";
 import aiChatIcon from "../assets/images/gold_ai_chat_icon_1784556885223.jpg";
+import { useI18n } from "../i18n";
 
 interface ChatbotProps {
   onOpenCheckout: () => void;
@@ -14,12 +15,13 @@ interface Message {
 }
 
 export default function Chatbot({ onOpenCheckout }: ChatbotProps) {
+  const { t } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
       role: "model",
-      text: "¡Hola! Soy la Asistente Inteligente de Daniela Harrington. Estoy aquí para resolver tus dudas sobre planificación migratoria, trámites consulares, finanzas de partida, o darte detalles sobre qué vas a aprender en la 'Guía de Supervivencia al Migrante'. ¿Hacia qué país estás planeando mudarte?"
+      text: t.chatWelcome
     }
   ]);
   const [inputVal, setInputVal] = useState("");
@@ -33,10 +35,10 @@ export default function Chatbot({ onOpenCheckout }: ChatbotProps) {
   }, [messages, isTyping, isOpen]);
 
   const presetQuestions = [
-    "¿De qué trata exactamente la guía?",
-    "¿Sirve si emigro desde Latinoamérica?",
-    "¿Qué incluye el módulo de finanzas?",
-    "¿Tiene garantía de devolución?"
+    t.chatQ1,
+    t.chatQ2,
+    t.chatQ3,
+    t.chatQ4
   ];
 
   const handleSendMessage = async (text: string) => {
@@ -81,7 +83,7 @@ export default function Chatbot({ onOpenCheckout }: ChatbotProps) {
         {
           id: "error-" + Date.now(),
           role: "model",
-          text: "Lo siento, tuve un problema al conectar con el servidor para procesar tu consulta. Sin embargo, te aseguro que la guía te será sumamente útil. Puedes adquirirla ahora con garantía de reembolso de 3 días."
+          text: t.chatError
         }
       ]);
     } finally {
@@ -96,7 +98,7 @@ export default function Chatbot({ onOpenCheckout }: ChatbotProps) {
           id="chatbot-trigger-btn"
           onClick={() => setIsOpen(true)}
           className="bg-[#020712] hover:bg-[#0A1D37] text-[#E79923] p-2.5 rounded-full shadow-2xl flex items-center justify-center border border-blue-500/25 hover:border-[#E79923]/60 transition-all duration-300 group hover:scale-105 active:scale-95 cursor-pointer"
-          title="¿Dudas? Chatea con nuestro asesor de IA"
+          title={t.chatTriggerTitle}
         >
           <div className="w-8 h-8 rounded-full overflow-hidden border border-[#E79923]/40 bg-[#01040a] flex items-center justify-center">
             <img
@@ -107,7 +109,7 @@ export default function Chatbot({ onOpenCheckout }: ChatbotProps) {
             />
           </div>
           <span className="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-2.5 transition-all duration-300 ease-out text-sm font-bold text-white whitespace-nowrap">
-            ¿Dudas? Chatea con IA
+            {t.chatTriggerText}
           </span>
           <span className="absolute top-0 right-0 h-3.5 w-3.5 bg-[#E79923] rounded-full border border-[#020712] animate-pulse" />
         </button>
@@ -128,7 +130,7 @@ export default function Chatbot({ onOpenCheckout }: ChatbotProps) {
               </div>
               <div className="flex flex-col">
                 <span className="text-xs font-bold tracking-widest text-[#E79923] uppercase">ASESOR VIRTUAL</span>
-                <span className="text-sm font-bold text-slate-100">Consultas de Emigración</span>
+                <span className="text-sm font-bold text-slate-100">{t.chatHeader}</span>
               </div>
             </div>
             <button
@@ -156,7 +158,7 @@ export default function Chatbot({ onOpenCheckout }: ChatbotProps) {
                   {m.text}
                 </div>
                 <span className="text-[9px] text-slate-500 mt-1 font-semibold">
-                  {m.role === "user" ? "Tú" : "Asistente IA"}
+                  {m.role === "user" ? t.chatYou : t.chatAssistant}
                 </span>
               </div>
             ))}
@@ -164,7 +166,7 @@ export default function Chatbot({ onOpenCheckout }: ChatbotProps) {
             {isTyping && (
               <div className="flex items-center space-x-2 mr-auto bg-white/[0.03] border border-white/5 p-3 rounded-2xl rounded-bl-none max-w-[80%] shadow-sm">
                 <Loader2 className="h-4 w-4 text-[#E79923] animate-spin" />
-                <span className="text-xs text-slate-400 font-semibold italic">Daniela está redactando una respuesta...</span>
+                <span className="text-xs text-slate-400 font-semibold italic">{t.chatTyping}</span>
               </div>
             )}
             <div ref={messagesEndRef} />
@@ -188,14 +190,14 @@ export default function Chatbot({ onOpenCheckout }: ChatbotProps) {
           <div className="bg-[#E79923]/10 border-t border-b border-[#E79923]/20 p-2 text-center text-[10px] text-[#E79923] font-medium flex items-center justify-center space-x-1">
             <Heart className="h-3 w-3 text-[#E79923] fill-[#E79923]/10" />
             <span>
-              Adquiere la guía hoy por solo <strong>USD 14.99</strong>
+              {t.chatCTA}
             </span>
             <button
               id="chat-nudge-cta"
               onClick={onOpenCheckout}
               className="text-[10px] text-[#E79923] font-bold underline hover:text-[#FFB73B] ml-1.5 cursor-pointer"
             >
-              Comprar ahora
+              {t.chatCTABtn}
             </button>
           </div>
 
@@ -203,7 +205,7 @@ export default function Chatbot({ onOpenCheckout }: ChatbotProps) {
             <input
               id="chatbot-input-field"
               type="text"
-              placeholder="Haz tu consulta migratoria..."
+              placeholder={t.chatPlaceholder}
               value={inputVal}
               onChange={(e) => setInputVal(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSendMessage(inputVal)}

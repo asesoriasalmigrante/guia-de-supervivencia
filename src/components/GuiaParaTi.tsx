@@ -1,14 +1,16 @@
 import React from "react";
 import { Check } from "lucide-react";
+import { useI18n } from "../i18n";
 import importantIcon from "../assets/images/gold_important_icon_1784555057567.jpg";
 
 export default function GuiaParaTi() {
+  const { t } = useI18n();
   const pointsList = [
-    "Alguien que está pensando seriamente en mudarse a otro país.",
-    "Estudiante que planea continuar su formación académica en el exterior.",
-    "Profesional calificado que busca mejores oportunidades laborales.",
-    "Familias que se encuentran organizando una mudanza compleja.",
-    "Migrante reciente que acaba de llegar y aún se está adaptando al nuevo entorno."
+    t.guiaParaTi1,
+    t.guiaParaTi2,
+    t.guiaParaTi3,
+    t.guiaParaTi4,
+    t.guiaParaTi5
   ];
 
   return (
@@ -18,7 +20,7 @@ export default function GuiaParaTi() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
             <h2 className="text-3xl font-display font-normal text-white tracking-tight">
-              Esta guía es para ti, si eres:
+              {t.guiaParaTiTitle}
             </h2>
             <div className="h-1 w-12 bg-[#E79923] rounded" />
             <ul className="space-y-4 pt-4">
@@ -47,15 +49,15 @@ export default function GuiaParaTi() {
                   />
                 </div>
                 <h3 className="font-display text-lg font-normal text-white">
-                  Importante
+                  {t.guiaParaTiImportant}
                 </h3>
               </div>
               <div className="space-y-3 text-[#94a3b8] text-sm leading-relaxed">
                 <p>
-                  Esta guía <strong className="text-white font-semibold">no sustituye</strong> una asesoría legal individualizada ni incluye trámites burocráticos específicos de un país en particular (como planillas consulares).
+                  <span dangerouslySetInnerHTML={{ __html: t.guiaParaTiImportantP1 }} />
                 </p>
                 <p>
-                  Es una <strong className="text-white font-semibold">herramienta de preparación integral, información y orientación metodológica</strong> para que entiendas la mecánica de emigrar, evites estafas y tomes decisiones informadas con seguridad.
+                  <span dangerouslySetInnerHTML={{ __html: t.guiaParaTiImportantP2 }} />
                 </p>
               </div>
             </div>

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useI18n } from "../i18n";
+import { LanguageSelector } from "./LanguageSelector";
 
 interface NavbarProps {
   onOpenCheckout: () => void;
@@ -9,14 +11,14 @@ interface NavbarProps {
 
 export default function Navbar({ onOpenCheckout, timeLeftStr, isPromoActive }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useI18n();
   const menuItems = [
-    { label: "La guía", href: "#la-guia" },
-    { label: "Contenido", href: "#contenido" },
-    { label: "Herramientas", href: "#herramientas" },
-    { label: "Sobre la autora", href: "#sobre-la-autora" },
-    { label: "Testimonios", href: "#testimonios" },
-    { label: "Dejar reseña", href: "#dejar-resena" },
-    { label: "FAQ", href: "#faq" }
+    { label: t.navGuide, href: "#la-guia" },
+    { label: t.navContent, href: "#contenido" },
+    { label: t.navTools, href: "#herramientas" },
+    { label: t.navAuthor, href: "#sobre-la-autora" },
+    { label: t.navTestimonials, href: "#testimonios" },
+    { label: t.navFAQ, href: "#faq" }
   ];
 
   return (
@@ -25,16 +27,16 @@ export default function Navbar({ onOpenCheckout, timeLeftStr, isPromoActive }: N
         <div className="bg-gradient-to-r from-[#E79923] via-[#FFC73C] to-[#FFF3D1] text-slate-950 text-center py-1.5 px-4 text-[10px] sm:text-xs font-semibold flex items-center justify-center gap-1.5 sm:gap-2 relative z-50 shadow-md border-b border-[#E79923]/20 animate-fadeIn">
           <span className="inline-block animate-pulse">🔥</span>
           <span>
-            ¡Oferta Express! Compra en los próximos{" "}
+            {t.navPromoActive1}{" "}
             <strong className="font-extrabold text-xs sm:text-sm bg-slate-950 text-[#E79923] px-2 py-0.5 rounded ml-1 mr-1 font-mono">
               {timeLeftStr}
             </strong>{" "}
-            minutos y llévate <strong>3 Bonos de Regalo</strong> (USD 87) <strong>GRATIS</strong>.
+            {t.navPromoActive2} <strong>{t.navPromoActive3}</strong> {t.navPromoActive4} <strong>{t.navPromoActive5}</strong>.
           </span>
         </div>
       ) : (
         <div className="bg-rose-950/40 text-rose-200 text-center py-1.5 px-4 text-[10px] sm:text-xs font-medium flex items-center justify-center gap-1.5 relative z-50 border-b border-rose-950/50">
-          <span>⏳ La promoción con los 3 Bonos Gratuitos ha expirado, pero aún puedes adquirir la guía a precio especial.</span>
+          <span>{t.navPromoExpired}</span>
         </div>
       )}
 
@@ -74,13 +76,14 @@ export default function Navbar({ onOpenCheckout, timeLeftStr, isPromoActive }: N
             ))}
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <LanguageSelector />
             <button
               id="nav-cta-btn"
               onClick={onOpenCheckout}
               className="px-6 py-2 border border-white/20 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black hover:border-white transition-all duration-200 active:scale-95 cursor-pointer"
             >
-              Quiero mi guía
+              {t.navCTA}
             </button>
           </div>
 
@@ -118,7 +121,7 @@ export default function Navbar({ onOpenCheckout, timeLeftStr, isPromoActive }: N
                 }}
                 className="w-full bg-[#E79923] hover:bg-[#FFB73B] text-[#0B2447] font-bold py-3 px-4 rounded-full text-center text-xs uppercase tracking-widest transition-colors cursor-pointer"
               >
-                Quiero mi guía
+                {t.navCTA}
               </button>
             </div>
           </div>

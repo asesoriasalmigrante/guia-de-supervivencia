@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Calculator, MapPin, Users, PiggyBank } from "lucide-react";
+import { useI18n } from "../i18n";
 import budgetIcon from "../assets/images/gold_budget_icon_1784559840330.jpg";
 
 export default function InteractiveTools() {
+  const { t } = useI18n();
   const [destination, setDestination] = useState("A");
   const [people, setPeople] = useState(1);
   const [savings, setSavings] = useState(1500);
@@ -39,13 +41,13 @@ export default function InteractiveTools() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-xs font-bold uppercase tracking-widest text-[#E79923] block mb-2">
-            PLANIFICADOR DE MUDANZA
+            {t.toolsBadge}
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-normal text-white tracking-tight">
-            Calculadora de Arribo e Instalación
+            {t.toolsTitle}
           </h2>
           <p className="text-[#94a3b8] font-sans text-sm sm:text-base mt-2">
-            Usa nuestro simulador interactivo para estimar el presupuesto inicial ideal para emigrar según tu destino y situación familiar.
+            {t.toolsSubtitle}
           </p>
           <div className="h-1 w-12 bg-[#E79923] mx-auto mt-4 rounded" />
         </div>
@@ -63,17 +65,17 @@ export default function InteractiveTools() {
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                Simulador de Presupuesto de Emigración
+                {t.toolsSimTitle}
               </h3>
               <p className="text-xs text-slate-400 mt-1">
-                Estima el capital inicial ideal necesario para mudarte y estabilizarte según tu destino y tamaño de familia.
+                {t.toolsSimDesc}
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="space-y-2">
                 <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block flex items-center">
-                  <MapPin className="h-3.5 w-3.5 text-[#E79923] mr-1" /> Destino general
+                  <MapPin className="h-3.5 w-3.5 text-[#E79923] mr-1" /> {t.toolsDestino}
                 </label>
                 <select
                   id="budget-destination"
@@ -81,15 +83,15 @@ export default function InteractiveTools() {
                   onChange={(e) => setDestination(e.target.value)}
                   className="w-full bg-slate-900 border border-white/10 text-white px-3 py-2.5 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-[#E79923] cursor-pointer"
                 >
-                  <option value="A">Europa / Norteamérica (Costos Altos)</option>
-                  <option value="C">Asia / Oceanía (Costos Medios-Altos)</option>
-                  <option value="B">Latinoamérica (Costos Moderados)</option>
+                  <option value="A">{t.toolsDestino1}</option>
+                  <option value="C">{t.toolsDestino2}</option>
+                  <option value="B">{t.toolsDestino3}</option>
                 </select>
               </div>
 
               <div className="space-y-2">
                 <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block flex items-center">
-                  <Users className="h-3.5 w-3.5 text-[#E79923] mr-1" /> Personas que viajan
+                  <Users className="h-3.5 w-3.5 text-[#E79923] mr-1" /> {t.toolsPersonas}
                 </label>
                 <div className="flex bg-white/5 border border-white/10 rounded-xl p-1">
                   {[1, 2, 4].map((size) => (
@@ -102,7 +104,7 @@ export default function InteractiveTools() {
                         people === size ? "bg-white text-slate-950" : "text-[#94a3b8] hover:text-white"
                       }`}
                     >
-                      {size === 1 ? "Solo" : size === 2 ? "Pareja" : "Familia (4)"}
+                      {size === 1 ? t.toolsSolo : size === 2 ? t.toolsPareja : t.toolsFamilia}
                     </button>
                   ))}
                 </div>
@@ -110,7 +112,7 @@ export default function InteractiveTools() {
 
               <div className="space-y-2">
                 <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block flex items-center">
-                  <PiggyBank className="h-3.5 w-3.5 text-[#E79923] mr-1" /> Capital actual ahorrado (USD)
+                  <PiggyBank className="h-3.5 w-3.5 text-[#E79923] mr-1" /> {t.toolsCapital}
                 </label>
                 <input
                   id="budget-actual-savings"
@@ -126,21 +128,21 @@ export default function InteractiveTools() {
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4 pt-2">
               <div className="md:col-span-3 space-y-3">
                 <div className="flex items-center justify-between p-3 bg-white/[0.01] border border-white/5 rounded-xl text-slate-200">
-                  <span className="text-xs font-medium text-[#94a3b8]">Costos de Pasajes de Avión (Est.)</span>
+                  <span className="text-xs font-medium text-[#94a3b8]">{t.toolsResultPasajes}</span>
                   <span className="text-sm font-bold text-white">USD {ticketCost}</span>
                 </div>
                 <div className="flex items-center justify-between p-3 bg-white/[0.01] border border-white/5 rounded-xl text-slate-200">
-                  <span className="text-xs font-medium text-[#94a3b8]">Tasas consulares y visas (Est.)</span>
+                  <span className="text-xs font-medium text-[#94a3b8]">{t.toolsResultTasas}</span>
                   <span className="text-sm font-bold text-white">USD {visaCost}</span>
                 </div>
                 <div className="flex items-center justify-between p-3 bg-white/[0.01] border border-white/5 rounded-xl text-slate-200">
-                  <span className="text-xs font-medium text-[#94a3b8]">Garantía / Depósito de Alquiler</span>
+                  <span className="text-xs font-medium text-[#94a3b8]">{t.toolsResultDeposito}</span>
                   <span className="text-sm font-bold text-white">USD {rentDeposit}</span>
                 </div>
                 <div className="flex items-center justify-between p-3 bg-[#E79923]/10 border border-[#E79923]/20 rounded-xl">
                   <div>
-                    <span className="text-xs font-bold text-[#E79923]">Fondo de Supervivencia Mínimo</span>
-                    <span className="block text-[10px] text-[#FFAE34] font-medium">Recomendado 3 meses de manutención</span>
+                    <span className="text-xs font-bold text-[#E79923]">{t.toolsResultFondo}</span>
+                    <span className="block text-[10px] text-[#FFAE34] font-medium">{t.toolsResultFondoDesc}</span>
                   </div>
                   <span className="text-sm font-black text-[#E79923]">USD {emergencyReserve}</span>
                 </div>
@@ -148,14 +150,14 @@ export default function InteractiveTools() {
 
               <div className="md:col-span-2 bg-gradient-to-br from-[#0E305C]/40 to-slate-900/30 text-[#e2e8f0] border border-[#E79923]/20 rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-lg">
                 <div className="space-y-3">
-                  <span className="text-[10px] font-bold text-[#E79923] uppercase tracking-widest block">Resumen del Plan</span>
+                  <span className="text-[10px] font-bold text-[#E79923] uppercase tracking-widest block">{t.toolsResumen}</span>
                   <div>
-                    <span className="text-xs text-[#94a3b8] block">Total Ideal Requerido:</span>
+                    <span className="text-xs text-[#94a3b8] block">{t.toolsTotal}</span>
                     <span className="text-2xl font-display font-extrabold text-white">USD {idealSavings}</span>
                   </div>
                   <div className="space-y-1 pt-2">
                     <div className="flex justify-between text-[10px] font-semibold text-slate-400">
-                      <span>Ahorros: USD {savings}</span>
+                      <span>{t.toolsAhorros} USD {savings}</span>
                       <span>{progressPercent}%</span>
                     </div>
                     <div className="w-full bg-white/5 h-2.5 rounded-full overflow-hidden border border-white/5">
@@ -167,7 +169,7 @@ export default function InteractiveTools() {
                   </div>
                 </div>
                 <p className="text-[10px] text-slate-500 mt-4 leading-relaxed font-sans">
-                  *Estimaciones de vida basadas en la fórmula de la guía de Daniela Harrington, considerando una canasta de alimentos y costo habitacional promedio.
+                  {t.toolsDisclaimer}
                 </p>
               </div>
             </div>

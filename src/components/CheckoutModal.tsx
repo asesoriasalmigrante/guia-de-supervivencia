@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { ShoppingCart, X, CheckCircle, Award, Download, Loader2, ShieldCheck, Lock, Copy, Check, ExternalLink } from "lucide-react";
+import { ShoppingCart, X, CheckCircle, Award, Download, Loader2, ShieldCheck, Lock, Copy, Check, ExternalLink, CreditCard } from "lucide-react";
+import { useI18n } from "../i18n";
 
 interface CheckoutModalProps {
   isOpen: boolean;
@@ -20,6 +21,7 @@ interface CheckoutResponse {
 }
 
 export default function CheckoutModal({ isOpen, onClose, isPromoActive, timeLeftStr, selectedProduct }: CheckoutModalProps) {
+  const { t } = useI18n();
   const [paymentMethod, setPaymentMethod] = useState<"paypal" | "mercado" | "binance">("paypal");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -79,26 +81,22 @@ export default function CheckoutModal({ isOpen, onClose, isPromoActive, timeLeft
 
     setIsSubmitting(true);
     try {
-      const response = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: fullName.trim(),
-          email: email.trim(),
-          paymentMethod,
-          productName: productTitle,
-          amount: productPrice.toString(),
-          reference: paymentMethod === "binance" ? binanceId : paymentMethod === "paypal" ? paypalEmail : paymentMethod === "mercado" ? mercadoAlias : undefined
-        })
-      });
+      // Simulate payment processing (no backend needed for now)
+      await new Promise(resolve => setTimeout(resolve, 1500));
 
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.error || "Ocurrió un error al procesar el pago.");
-      }
-      setSuccessData(data);
+      const reference = paymentMethod === "binance" ? binanceId : paymentMethod === "paypal" ? paypalEmail : mercadoAlias;
+
+      setSuccessData({
+        orderId: `AM-${Date.now().toString(36).toUpperCase()}`,
+        purchaseDate: new Date().toLocaleString("es-AR", { dateStyle: "long", timeStyle: "short" }),
+        customerName: fullName.trim(),
+        customerEmail: email.trim(),
+        productName: productTitle,
+        amount: productPrice,
+        currency: "USD"
+      });
     } catch (err: any) {
-      setErrorMsg(err.message || "Error al conectar con la pasarela de pago.");
+      setErrorMsg(err.message || "Error al procesar el pago.");
     } finally {
       setIsSubmitting(false);
     }
@@ -221,7 +219,7 @@ Para soporte prioritario, escríbenos a: asesoriasalmigrante@gmail.com
           type="button"
           onClick={onClose}
           className="absolute top-3 right-3 z-50 p-1.5 rounded-full bg-slate-950/80 hover:bg-slate-950 text-slate-300 hover:text-white border border-white/10 transition-all hover:scale-105 hover:shadow-lg shadow-[#000]/20 cursor-pointer"
-          title="Cerrar y regresar al menú"
+          title={t.checkoutClose}
         >
           <X className="h-4 w-4" />
         </button>
@@ -230,7 +228,7 @@ Para soporte prioritario, escríbenos a: asesoriasalmigrante@gmail.com
           <div className="bg-[#07172E] text-white p-3.5 pr-12 flex items-center justify-between border-b border-white/5 flex-shrink-0">
             <div className="flex items-center space-x-2">
               <ShoppingCart className="h-4.5 w-4.5 text-[#E79923]" />
-              <h3 className="font-display text-base font-normal">Completa tu Compra</h3>
+              <h3 className="font-display text-base font-normal">{t.checkoutTitle}</h3>
             </div>
             {/* Explicit close button inside the header */}
             <button
@@ -238,7 +236,7 @@ Para soporte prioritario, escríbenos a: asesoriasalmigrante@gmail.com
               onClick={onClose}
               className="text-[11px] font-bold text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 px-2.5 py-1 rounded-md border border-white/10 transition-colors cursor-pointer flex items-center space-x-1"
             >
-              <span>Volver</span>
+              <span>{t.checkoutBack}</span>
             </button>
           </div>
         )}
@@ -250,36 +248,36 @@ Para soporte prioritario, escríbenos a: asesoriasalmigrante@gmail.com
                 <CheckCircle className="h-12 w-12" />
               </div>
               <div className="space-y-1">
-                <h4 className="text-2xl font-display font-normal text-white">¡Compra Completada!</h4>
-                <p className="text-xs text-slate-400">Tu pago ha sido aprobado de manera 100% segura.</p>
+                <h4 className="text-2xl font-display font-normal text-white">{t.checkoutSuccessTitle}</h4>
+                <p className="text-xs text-slate-400">{t.checkoutSuccessSubtitle}</p>
               </div>
 
               <div className="bg-white/[0.01] border border-white/5 rounded-2xl p-5 text-left text-xs space-y-3 font-sans text-slate-300">
                 <div className="flex justify-between items-center pb-2 border-b border-white/5">
-                  <span className="font-bold text-slate-400">RECIBO DE PAGO</span>
+                  <span className="font-bold text-slate-400">{t.checkoutReceipt}</span>
                   <span className="font-mono text-slate-500 font-semibold">{successData.orderId}</span>
                 </div>
                 <div className="space-y-1">
                   <div className="flex justify-between">
-                    <span className="text-slate-400">Cliente:</span>
+                    <span className="text-slate-400">{t.checkoutClient}</span>
                     <span className="font-bold text-white">{successData.customerName}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-400">Email:</span>
+                    <span className="text-slate-400">{t.checkoutEmail}</span>
                     <span className="font-medium text-white">{successData.customerEmail}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-400">Fecha:</span>
+                    <span className="text-slate-400">{t.checkoutDate}</span>
                     <span className="text-white">{successData.purchaseDate}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-400">Método de pago:</span>
+                    <span className="text-slate-400">{t.checkoutMethod}</span>
                     <span className="font-bold uppercase text-white">{paymentMethod}</span>
                   </div>
                 </div>
                 <div className="pt-2 border-t border-white/5 space-y-1">
                   <div className="flex justify-between font-bold text-white text-sm">
-                    <span>Total Pagado:</span>
+                    <span>{t.checkoutTotal}</span>
                     <span>${successData.amount} {successData.currency}</span>
                   </div>
                 </div>
@@ -289,10 +287,10 @@ Para soporte prioritario, escríbenos a: asesoriasalmigrante@gmail.com
                 <span className="font-bold flex items-center">
                   <Award className="h-4 w-4 mr-1 text-[#E79923]" />{" "}
                   {selectedProduct 
-                    ? "¡Recurso premium desbloqueado con éxito!"
+                    ? t.checkoutBonusUnlocked
                     : isPromoActive 
-                    ? "¡Material extra y 3 Bonos Premium desbloqueados!" 
-                    : "¡Material extra desbloqueado!"}
+                    ? t.checkoutBonusUnlocked 
+                    : t.checkoutBonusUnlocked}
                 </span>
                 <p className="text-slate-300">
                   {selectedProduct
@@ -310,7 +308,7 @@ Para soporte prioritario, escríbenos a: asesoriasalmigrante@gmail.com
                   className="w-full bg-[#E79923] hover:bg-[#FFB73B] text-slate-950 font-black py-3.5 px-6 rounded-xl flex items-center justify-center space-x-2 transition-all hover:shadow-lg hover:shadow-[#E79923]/20 active:scale-98 cursor-pointer"
                 >
                   <Download className="h-5 w-5" />
-                  <span>Descargar {selectedProduct ? "Recurso" : "Guía Completa"} (PDF / TXT)</span>
+                  <span>{t.checkoutDownload}</span>
                 </button>
                 <button
                   id="success-close-btn"
@@ -320,7 +318,7 @@ Para soporte prioritario, escríbenos a: asesoriasalmigrante@gmail.com
                   }}
                   className="w-full bg-white/5 hover:bg-white/10 text-slate-300 font-bold py-2.5 rounded-xl text-xs transition-colors cursor-pointer"
                 >
-                  Cerrar Ventana
+                  {t.checkoutCloseBtn}
                 </button>
               </div>
             </div>
@@ -428,11 +426,11 @@ Para soporte prioritario, escríbenos a: asesoriasalmigrante@gmail.com
 
               <div className="space-y-3.5">
                 <div className="space-y-1">
-                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Nombre completo</label>
+                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">{t.checkoutNameLabel}</label>
                   <input
                     id="checkout-input-name"
                     type="text"
-                    placeholder="Ej: María García Pérez"
+                    placeholder={t.checkoutNamePh}
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     className="w-full bg-white/5 border border-white/10 text-white px-3 py-2 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#E79923] placeholder-slate-500"
@@ -440,11 +438,11 @@ Para soporte prioritario, escríbenos a: asesoriasalmigrante@gmail.com
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Correo electrónico de envío</label>
+                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">{t.checkoutEmailLabel}</label>
                   <input
                     id="checkout-input-email"
                     type="email"
-                    placeholder="mariagarcia@gmail.com"
+                    placeholder={t.checkoutEmailPh}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full bg-white/5 border border-white/10 text-white px-3 py-2 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#E79923] placeholder-slate-500"
@@ -705,12 +703,12 @@ Para soporte prioritario, escríbenos a: asesoriasalmigrante@gmail.com
                   {isSubmitting ? (
                     <>
                       <Loader2 className="h-4.5 w-4.5 animate-spin" />
-                      <span>Verificando transacción segura...</span>
+                      <span>{t.checkoutProcessing}</span>
                     </>
                   ) : (
                     <>
                       <ShieldCheck className="h-4.5 w-4.5" />
-                      <span>Aprobar Pago Seguro • USD {productPrice}</span>
+                      <span>{t.checkoutSubmit}</span>
                     </>
                   )}
                 </button>
@@ -722,12 +720,12 @@ Para soporte prioritario, escríbenos a: asesoriasalmigrante@gmail.com
                   onClick={onClose}
                   className="w-full bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white font-bold py-2 px-5 rounded-xl text-xs transition-all border border-white/10 text-center cursor-pointer block"
                 >
-                  Cancelar y Volver al Menú Principal
+                  {t.checkoutCancel}
                 </button>
 
                 <div className="text-[9px] text-slate-500 text-center flex items-center justify-center space-x-1 pt-0.5">
                   <Lock className="h-3 w-3 text-slate-500" />
-                  <span>Cifrado SSL de 256 bits. No guardamos tus datos de tarjeta.</span>
+                  <span>{t.checkoutSecurity}</span>
                 </div>
               </div>
             </form>

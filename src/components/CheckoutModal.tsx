@@ -7,7 +7,7 @@ interface CheckoutModalProps {
   onClose: () => void;
   isPromoActive: boolean;
   timeLeftStr: string;
-  selectedProduct?: { name: string; price: number; isBonus?: boolean } | null;
+  selectedProduct?: { name: string; price: number; type?: "app" | "pdf"; isBonus?: boolean } | null;
 }
 
 interface CheckoutResponse {
@@ -42,7 +42,9 @@ export default function CheckoutModal({ isOpen, onClose, isPromoActive, timeLeft
   if (!isOpen) return null;
 
   const productTitle = selectedProduct ? selectedProduct.name : "Mudarse a Otro País: La Verdadera Guía de Supervivencia (Ebook PDF + Material Extra)";
-  const productDesc = selectedProduct ? "Bono individual - Recurso de Planificación" : "Ebook PDF + Material Extra de Planificación";
+  const productDesc = selectedProduct 
+    ? (selectedProduct.type === "app" ? "App Interactiva - Acceso completo con herramientas digitales" : "Guía PDF - Contenido descargable permanente")
+    : "Ebook PDF + Material Extra de Planificación";
   const productPrice = selectedProduct ? selectedProduct.price : 14.99;
 
   const handleSubmit = async (e: React.FormEvent) => {

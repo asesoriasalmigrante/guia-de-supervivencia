@@ -44,6 +44,29 @@ export interface Translation {
   heroPromoExpired: string;
   heroPaymentTitle: string;
   heroPaymentSecure: string;
+  // Product Comparison
+  productComparisonTitle: string;
+  productComparisonSubtitle: string;
+  productAppTitle: string;
+  productAppDesc: string;
+  productAppPrice: string;
+  productAppOriginalPrice: string;
+  productAppCTA: string;
+  productAppBadge: string;
+  productAppFeature1: string;
+  productAppFeature2: string;
+  productAppFeature3: string;
+  productAppFeature4: string;
+  productAppFeature5: string;
+  productPdfTitle: string;
+  productPdfDesc: string;
+  productPdfPrice: string;
+  productPdfOriginalPrice: string;
+  productPdfCTA: string;
+  productPdfBadge: string;
+  productPdfFeature1: string;
+  productPdfFeature2: string;
+  productPdfFeature3: string;
   // Emotions
   emotionsTitle: string;
   emotions1: string;

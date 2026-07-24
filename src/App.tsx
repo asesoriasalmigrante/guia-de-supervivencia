@@ -16,11 +16,19 @@ import DottedWorldMap from "./components/DottedWorldMap";
 import ebookCoverImg from "./assets/images/ebook_cover.jpeg";
 import { useI18n } from "./i18n";
 import { VisitorCounter } from "./components/VisitorCounter";
+import ProductComparison from "./components/ProductComparison";
+
+export interface Product {
+  name: string;
+  price: number;
+  type: "app" | "pdf";
+  isBonus?: boolean;
+}
 
 export default function App() {
   const { t } = useI18n();
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<{ name: string; price: number; isBonus?: boolean } | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const promoTimerKey = "migrante_promo_timer_end";
   const promoDurationMs = 900 * 1000; // 15 minutes
   const [timeLeft, setTimeLeft] = useState(promoDurationMs);
@@ -66,9 +74,9 @@ export default function App() {
 
   const formattedTimeStr = formatTime(timeLeft);
 
-  const openCheckout = (product?: { name: string; price: number; isBonus?: boolean } | React.MouseEvent | any) => {
+  const openCheckout = (product?: Product | React.MouseEvent | any) => {
     if (product && typeof product === "object" && "name" in product && typeof product.name === "string" && "price" in product) {
-      setSelectedProduct(product);
+      setSelectedProduct(product as Product);
     } else {
       setSelectedProduct(null);
     }
@@ -91,6 +99,7 @@ export default function App() {
         timeLeftStr={formattedTimeStr}
         isPromoActive={isPromoActive}
       />
+      <ProductComparison onOpenCheckout={openCheckout} />
       <Emotions />
       <GuiaParaTi />
       <Achieve />
@@ -163,23 +172,33 @@ export default function App() {
             </span>
           </div>
 
-          <div className="pt-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <button
-              id="pre-footer-cta-btn"
-              onClick={openCheckout}
-              className="bg-[#E79923] hover:bg-[#FFB73B] text-[#020712] font-black text-sm uppercase tracking-widest px-8 py-4.5 rounded-full transition-all shadow-lg shadow-[#E79923]/10 hover:shadow-xl hover:shadow-[#E79923]/35 inline-flex items-center space-x-2 active:scale-98 cursor-pointer"
+              id="pre-footer-cta-app-btn"
+              onClick={() => openCheckout({ name: t.productAppTitle, price: 19.99, type: "app" })}
+              className="bg-[#E79923] hover:bg-[#FFB73B] text-[#020712] font-black text-sm uppercase tracking-widest px-8 py-4 rounded-full transition-all shadow-lg shadow-[#E79923]/10 hover:shadow-xl hover:shadow-[#E79923]/35 inline-flex items-center space-x-2 active:scale-98 cursor-pointer"
             >
-              <span>{t.promoCTA}</span>
+              <span>{t.productAppCTA}</span>
               <span className="bg-[#020712]/10 text-[#020712] text-xs font-bold px-2.5 py-1 rounded-full ml-2">
-                USD 14.99
+                {t.productAppPrice}
               </span>
             </button>
-            {isPromoActive && (
-              <div className="text-xs text-[#E79923] mt-3 font-medium">
-                {t.promoBonusNote}
-              </div>
-            )}
+            <button
+              id="pre-footer-cta-pdf-btn"
+              onClick={() => openCheckout({ name: t.productPdfTitle, price: 14.99, type: "pdf" })}
+              className="bg-white/10 hover:bg-white/20 text-white font-black text-sm uppercase tracking-widest px-8 py-4 rounded-full transition-all border border-white/20 inline-flex items-center space-x-2 active:scale-98 cursor-pointer"
+            >
+              <span>{t.productPdfCTA}</span>
+              <span className="bg-white/10 text-white text-xs font-bold px-2.5 py-1 rounded-full ml-2">
+                {t.productPdfPrice}
+              </span>
+            </button>
           </div>
+          {isPromoActive && (
+            <div className="text-xs text-[#E79923] mt-3 font-medium">
+              {t.promoBonusNote}
+            </div>
+          )}
         </div>
       </section>
 

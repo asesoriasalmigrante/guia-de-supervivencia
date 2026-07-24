@@ -8,7 +8,7 @@ import supportIcon from "../assets/images/gold_support_icon_1784556133327.jpg";
 import { useI18n } from "../i18n";
 
 interface HeroProps {
-  onOpenCheckout: () => void;
+  onOpenCheckout: (product?: { name: string; price: number; type?: "app" | "pdf" }) => void;
   timeLeftStr: string;
   isPromoActive: boolean;
 }
@@ -144,46 +144,94 @@ export default function Hero({ onOpenCheckout, timeLeftStr, isPromoActive }: Her
         </div>
 
         {/* Row 2: Pricing & CTA Box - Clean and spacious centered box */}
-        <div className="mt-16 max-w-4xl mx-auto">
+        <div className="mt-16 max-w-5xl mx-auto">
           <div className="bg-white/[0.02] border border-white/5 p-6 sm:p-10 rounded-3xl space-y-6 shadow-2xl backdrop-blur-md relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-[#E79923]/5 to-transparent pointer-events-none" />
             
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-              {/* Price and Details */}
-              <div className="md:col-span-5 text-center md:text-left">
-                <span className="text-xs font-bold text-[#E79923] tracking-wider uppercase block mb-1">
-                  {t.heroPriceLabel}
-                </span>
-                <div className="flex items-baseline justify-center md:justify-start space-x-2">
-                  <span className="text-4xl sm:text-5xl font-black text-white">{t.heroPriceDiscount}</span>
-                  <span className="text-base text-slate-500 line-through">{t.heroPriceOriginal}</span>
+            {/* Header */}
+            <div className="text-center space-y-2 relative z-10">
+              <h3 className="text-xl sm:text-2xl font-bold text-white">{t.productComparisonTitle}</h3>
+              <p className="text-sm text-[#94a3b8]">{t.productComparisonSubtitle}</p>
+            </div>
+
+            {/* Two Product Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
+              {/* App Option */}
+              <div className="bg-gradient-to-b from-[#E79923]/10 to-transparent border border-[#E79923]/30 rounded-2xl p-5 space-y-4 hover:border-[#E79923]/50 transition-all">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Smartphone className="w-5 h-5 text-[#E79923]" />
+                    <span className="font-bold text-white text-sm">{t.productAppTitle}</span>
+                  </div>
+                  <span className="bg-[#E79923] text-[#0B2447] text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full">
+                    {t.productAppBadge}
+                  </span>
                 </div>
-                <div className="mt-3 inline-block bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
-                  Ahorras 50% de inmediato
+                <p className="text-xs text-[#94a3b8]">{t.productAppDesc}</p>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl font-black text-[#E79923]">{t.productAppPrice}</span>
+                  <span className="text-sm text-slate-500 line-through">{t.productAppOriginalPrice}</span>
                 </div>
+                <ul className="space-y-1.5">
+                  {[t.productAppFeature1, t.productAppFeature2, t.productAppFeature3, t.productAppFeature4, t.productAppFeature5].map((f, i) => (
+                    <li key={i} className="flex items-center gap-2 text-xs text-slate-300">
+                      <span className="w-1 h-1 rounded-full bg-[#E79923]" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  onClick={() => onOpenCheckout({ name: t.productAppTitle, price: 19.99, type: "app" } as any)}
+                  className="w-full bg-[#E79923] hover:bg-[#FFB73B] text-[#0B2447] font-black text-xs uppercase tracking-widest py-3 px-4 rounded-full flex items-center justify-center space-x-2 transition-all cursor-pointer"
+                >
+                  <ShoppingCart className="h-4 w-4" />
+                  <span>{t.productAppCTA}</span>
+                </button>
               </div>
 
-              {/* CTA Button and Secure Text */}
-              <div className="md:col-span-7 space-y-3">
+              {/* PDF Option */}
+              <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-5 space-y-4 hover:border-white/20 transition-all">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <FileText className="w-5 h-5 text-slate-400" />
+                    <span className="font-bold text-white text-sm">{t.productPdfTitle}</span>
+                  </div>
+                  <span className="bg-emerald-500/20 text-emerald-400 text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full">
+                    {t.productPdfBadge}
+                  </span>
+                </div>
+                <p className="text-xs text-[#94a3b8]">{t.productPdfDesc}</p>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl font-black text-white">{t.productPdfPrice}</span>
+                  <span className="text-sm text-slate-500 line-through">{t.productPdfOriginalPrice}</span>
+                </div>
+                <ul className="space-y-1.5">
+                  {[t.productPdfFeature1, t.productPdfFeature2, t.productPdfFeature3].map((f, i) => (
+                    <li key={i} className="flex items-center gap-2 text-xs text-slate-300">
+                      <span className="w-1 h-1 rounded-full bg-emerald-500" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
                 <button
-                  id="hero-cta-btn"
-                  onClick={onOpenCheckout}
-                  className="w-full bg-[#E79923] hover:bg-[#FFB73B] text-[#0B2447] font-black text-sm uppercase tracking-widest py-4 px-6 rounded-full flex items-center justify-center space-x-2 transition-all duration-200 shadow-lg shadow-[#E79923]/10 hover:shadow-xl hover:shadow-[#E79923]/35 active:scale-[0.99] cursor-pointer"
+                  onClick={() => onOpenCheckout({ name: t.productPdfTitle, price: 14.99, type: "pdf" } as any)}
+                  className="w-full bg-white/10 hover:bg-white/20 text-white font-black text-xs uppercase tracking-widest py-3 px-4 rounded-full flex items-center justify-center space-x-2 transition-all border border-white/20 cursor-pointer"
                 >
-                  <ShoppingCart className="h-5 w-5" />
-                  <span>{t.heroCTA}</span>
+                  <ShoppingCart className="h-4 w-4" />
+                  <span>{t.productPdfCTA}</span>
                 </button>
-
-                <p className="text-xs text-[#94a3b8] flex items-center justify-center space-x-1">
-                  <ShieldCheck className="h-4 w-4 text-emerald-500 inline mr-1" />
-                  <span>{t.heroSecure}</span>
-                </p>
               </div>
             </div>
 
+            {/* Secure Payment */}
+            <div className="flex items-center justify-center space-x-2 text-xs text-[#94a3b8] relative z-10">
+              <ShieldCheck className="h-4 w-4 text-emerald-500" />
+              <span>{t.heroSecure}</span>
+            </div>
+
             {/* Promo Bonuses */}
-            {isPromoActive ? (
-              <div className="border-t border-white/10 pt-6 space-y-4">
+            {isPromoActive && (
+              <div className="border-t border-white/10 pt-6 space-y-4 relative z-10">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs">
                   <span className="font-bold text-[#E79923] flex items-center justify-center sm:justify-start">
                     <span className="w-1.5 h-1.5 rounded-full bg-red-500 mr-1.5 animate-ping" />
@@ -230,14 +278,10 @@ export default function Hero({ onOpenCheckout, timeLeftStr, isPromoActive }: Her
                   {t.heroPromoSavings}
                 </div>
               </div>
-            ) : (
-              <div className="border-t border-white/10 pt-4 text-center text-xs text-rose-400 font-medium">
-                {t.heroPromoExpired}
-              </div>
             )}
 
             {/* Payment Processing Logos */}
-            <div className="border-t border-white/5 pt-4 text-center space-y-2">
+            <div className="border-t border-white/5 pt-4 text-center space-y-2 relative z-10">
               <p className="text-[10px] uppercase tracking-widest text-slate-400 font-semibold">
                 {t.heroPaymentTitle}
               </p>

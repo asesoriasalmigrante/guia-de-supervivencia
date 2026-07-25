@@ -23,7 +23,7 @@ export const ja: Translation = {
   heroFormatLabel: 'フォーマット',
   heroFormatValue: 'PDF または App',
   heroContentLabel: 'コンテンツ',
-  heroContentValue: '100ページ',
+  heroContentValue: '76ページ',
   heroSupportLabel: 'サポート',
   heroSupportValue: 'マルチデバイス対応',
   heroPriceLabel: '発売価格',

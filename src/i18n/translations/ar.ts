@@ -23,7 +23,7 @@ export const ar: Translation = {
   heroFormatLabel: 'الشكل',
   heroFormatValue: 'PDF أو تطبيق',
   heroContentLabel: 'المحتوى',
-  heroContentValue: '100 صفحة',
+  heroContentValue: '76 صفحة',
   heroSupportLabel: 'الدعم',
   heroSupportValue: 'متعدد الأجهزة',
   heroPriceLabel: 'سعر الإطلاق',

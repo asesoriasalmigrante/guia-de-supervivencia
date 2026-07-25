@@ -23,7 +23,7 @@ export const ko: Translation = {
   heroFormatLabel: '형식',
   heroFormatValue: 'PDF 또는 앱',
   heroContentLabel: '콘텐츠',
-  heroContentValue: '100페이지',
+  heroContentValue: '76페이지',
   heroSupportLabel: '지원',
   heroSupportValue: '다기기 지원',
   heroPriceLabel: '출시 가격',

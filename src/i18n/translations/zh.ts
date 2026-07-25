@@ -23,7 +23,7 @@ export const zh: Translation = {
   heroFormatLabel: '格式',
   heroFormatValue: 'PDF 或 App',
   heroContentLabel: '内容',
-  heroContentValue: '100页',
+  heroContentValue: '76页',
   heroSupportLabel: '支持',
   heroSupportValue: '多设备兼容',
   heroPriceLabel: '发布价格',

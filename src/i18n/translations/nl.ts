@@ -23,7 +23,7 @@ export const nl: Translation = {
   heroFormatLabel: 'Formaat',
   heroFormatValue: 'PDF of App',
   heroContentLabel: 'Inhoud',
-  heroContentValue: '100 Paginas',
+  heroContentValue: '76 Paginas',
   heroSupportLabel: 'Ondersteuning',
   heroSupportValue: 'Multi-apparaat',
   heroPriceLabel: 'Lanceerprijs',

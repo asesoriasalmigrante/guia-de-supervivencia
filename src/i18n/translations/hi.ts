@@ -23,7 +23,7 @@ export const hi: Translation = {
   heroFormatLabel: 'प्रारूप',
   heroFormatValue: 'PDF या ऐप',
   heroContentLabel: 'सामग्री',
-  heroContentValue: '100 पृष्ठ',
+  heroContentValue: '76 पृष्ठ',
   heroSupportLabel: 'सहायता',
   heroSupportValue: 'मल्टी-डिवाइस',
   heroPriceLabel: 'लॉन्च मूल्य',

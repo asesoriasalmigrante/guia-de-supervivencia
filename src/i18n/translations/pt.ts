@@ -23,7 +23,7 @@ export const pt: Translation = {
   heroFormatLabel: 'Formato',
   heroFormatValue: 'PDF ou App',
   heroContentLabel: 'Conteúdo',
-  heroContentValue: '100 Páginas',
+  heroContentValue: '76 Páginas',
   heroSupportLabel: 'Suporte',
   heroSupportValue: 'Multi-dispositivo',
   heroPriceLabel: 'Preço de lançamento',

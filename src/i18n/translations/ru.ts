@@ -23,7 +23,7 @@ export const ru: Translation = {
   heroFormatLabel: 'Формат',
   heroFormatValue: 'PDF или App',
   heroContentLabel: 'Содержание',
-  heroContentValue: '100 Страниц',
+  heroContentValue: '76 Страниц',
   heroSupportLabel: 'Поддержка',
   heroSupportValue: 'Мульти-устройство',
   heroPriceLabel: 'Цена запуска',

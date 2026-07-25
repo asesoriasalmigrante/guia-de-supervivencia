@@ -23,7 +23,7 @@ export const tr: Translation = {
   heroFormatLabel: 'Format',
   heroFormatValue: 'PDF veya Uygulama',
   heroContentLabel: 'İçerik',
-  heroContentValue: '100 Sayfa',
+  heroContentValue: '76 Sayfa',
   heroSupportLabel: 'Destek',
   heroSupportValue: 'Çoklu Cihaz',
   heroPriceLabel: 'Lansman fiyatı',
